@@ -1,0 +1,38 @@
+rules_version = '2';
+
+// Istibyan security rules.
+// - Creators sign in with Google and own their questionnaires.
+// - Respondents are signed in anonymously and may write only their own response,
+//   and only while the questionnaire is published.
+// - Only the owner can read a questionnaire's responses and saved AI insights.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function isCreator() { return signedIn() && request.auth.token.firebase.sign_in_provider != 'anonymous'; }
+    function survey(sid) { return get(/databases/$(database)/documents/surveys/$(sid)).data; }
+    function ownsSurvey(sid) { return signedIn() && survey(sid).ownerUid == request.auth.uid; }
+
+    match /surveys/{sid} {
+      allow read: if resource.data.status == 'published'
+                  || (signedIn() && resource.data.ownerUid == request.auth.uid);
+      allow create: if isCreator() && request.resource.data.ownerUid == request.auth.uid;
+      allow update: if isCreator() && resource.data.ownerUid == request.auth.uid
+                    && request.resource.data.ownerUid == resource.data.ownerUid;
+      allow delete: if isCreator() && resource.data.ownerUid == request.auth.uid;
+
+      match /responses/{rid} {
+        allow create, update: if signedIn() && request.auth.uid == rid
+          && survey(sid).status == 'published'
+          && request.resource.data.keys().hasOnly(['id', 'status', 'startedAt', 'submittedAt', 'demo', 'answers', 'svAt'])
+          && request.resource.data.status in ['started', 'complete'];
+        allow read: if signedIn() && (request.auth.uid == rid || ownsSurvey(sid));
+        allow delete: if ownsSurvey(sid);
+      }
+
+      match /private/{doc} {
+        allow read, write: if ownsSurvey(sid);
+      }
+    }
+  }
+}

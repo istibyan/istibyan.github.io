@@ -1,0 +1,1747 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Build professional questionnaires with AI, share a link with your sample, analyze results and export a PDF report. English and Arabic.">
+<title>Istibyan Survey Studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect x='7' y='3' width='22' height='30' rx='4' fill='%232a8574'/%3E%3Crect x='26' y='21' width='4' height='16' rx='1.5' fill='%23e38c35'/%3E%3Crect x='32' y='15' width='4' height='22' rx='1.5' fill='%23f5a855'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --bg:#f7f9fb; --surface:#ffffff; --surface-2:#f2f6f5; --line:#e2e8f0; --line-2:#cbd5e1;
+  --ink:#0f172a; --ink-2:#334155; --muted:#64748b;
+  --primary:#2a8574; --primary-2:#1f6659; --primary-ink:#ffffff; --primary-soft:#e5f2ef;
+  --accent:#e38c35; --accent-2:#c9701c; --accent-soft:#fdf1e4;
+  --danger:#d03b3b; --danger-soft:#fdecec; --warn:#a86a12; --warn-soft:#fdf5e3; --ok:#1c7f45; --ok-soft:#e5f5eb;
+  --shadow:0 4px 6px -1px rgba(15,23,42,.05),0 1px 2px rgba(15,23,42,.04);
+  --shadow-lg:0 10px 15px -3px rgba(42,133,116,.28);
+  --l1:#d95926; --l2:#f0a07c; --l3:#d9d8d4; --l4:#7cc3b3; --l5:#2a8574;
+  --l1-ink:#ffffff; --l2-ink:#3b1d0e; --l3-ink:#1f2937; --l4-ink:#0d2f28; --l5-ink:#ffffff;
+  --lv-vlow:#d03b3b; --lv-low:#ec835a; --lv-mod:#9aa6b6; --lv-high:#4fae98; --lv-vhigh:#1f6659;
+  --c1:#2a8574; --c2:#eb6834; --c3:#2a78d6; --c4:#eda100; --c5:#e87ba4; --c6:#4a3aa7; --c7:#e34948; --c8:#008300;
+  --blob1:rgba(227,140,53,.13); --blob2:rgba(42,133,116,.12);
+  --radius:14px;
+  --font:"Cairo","Segoe UI",Tahoma,"Noto Sans Arabic",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0c1413; --surface:#121c1b; --surface-2:#182523; --line:#243330; --line-2:#33443f;
+    --ink:#e8f0ee; --ink-2:#c4d1ce; --muted:#8fa29e;
+    --primary:#3fb89f; --primary-2:#2a8574; --primary-ink:#06201b; --primary-soft:#153a33;
+    --accent:#f0a055; --accent-2:#f5b577; --accent-soft:#3a2917;
+    --danger:#ef6b6b; --danger-soft:#3a1717; --warn:#f0b54a; --warn-soft:#352812; --ok:#4cc27d; --ok-soft:#12301f;
+    --shadow:0 1px 2px rgba(0,0,0,.4); --shadow-lg:0 10px 15px -3px rgba(0,0,0,.45);
+    --l1:#d95926; --l2:#b8704f; --l3:#4b504e; --l4:#3f8f7e; --l5:#7ad3bf;
+    --l1-ink:#ffffff; --l2-ink:#ffffff; --l3-ink:#e8f0ee; --l4-ink:#ffffff; --l5-ink:#06201b;
+    --lv-vlow:#e66767; --lv-low:#ec835a; --lv-mod:#7d8a99; --lv-high:#4fae98; --lv-vhigh:#7ad3bf;
+    --c1:#3fb89f; --c2:#d95926; --c3:#3987e5; --c4:#c98500; --c5:#d55181; --c6:#9085e9; --c7:#e66767; --c8:#2fa52f;
+    --blob1:rgba(240,160,85,.07); --blob2:rgba(63,184,159,.08);
+  }
+}
+:root[data-theme="dark"]{
+    color-scheme:dark;
+    --bg:#0c1413; --surface:#121c1b; --surface-2:#182523; --line:#243330; --line-2:#33443f;
+    --ink:#e8f0ee; --ink-2:#c4d1ce; --muted:#8fa29e;
+    --primary:#3fb89f; --primary-2:#2a8574; --primary-ink:#06201b; --primary-soft:#153a33;
+    --accent:#f0a055; --accent-2:#f5b577; --accent-soft:#3a2917;
+    --danger:#ef6b6b; --danger-soft:#3a1717; --warn:#f0b54a; --warn-soft:#352812; --ok:#4cc27d; --ok-soft:#12301f;
+    --shadow:0 1px 2px rgba(0,0,0,.4); --shadow-lg:0 10px 15px -3px rgba(0,0,0,.45);
+    --l1:#d95926; --l2:#b8704f; --l3:#4b504e; --l4:#3f8f7e; --l5:#7ad3bf;
+    --l1-ink:#ffffff; --l2-ink:#ffffff; --l3-ink:#e8f0ee; --l4-ink:#ffffff; --l5-ink:#06201b;
+    --lv-vlow:#e66767; --lv-low:#ec835a; --lv-mod:#7d8a99; --lv-high:#4fae98; --lv-vhigh:#7ad3bf;
+    --c1:#3fb89f; --c2:#d95926; --c3:#3987e5; --c4:#c98500; --c5:#d55181; --c6:#9085e9; --c7:#e66767; --c8:#2fa52f;
+    --blob1:rgba(240,160,85,.07); --blob2:rgba(63,184,159,.08);
+}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{font-family:var(--font);color:var(--ink);font-size:15px;line-height:1.6;min-height:100vh;
+  background:
+    radial-gradient(600px 380px at 8% -4%, var(--blob1), transparent 70%),
+    radial-gradient(640px 420px at 96% 6%, var(--blob2), transparent 70%),
+    var(--bg);
+  background-attachment:fixed;}
+h1,h2,h3,h4{margin:0;line-height:1.3;text-wrap:balance;color:var(--ink)}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:16px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--surface) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:14px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--ink);white-space:nowrap}
+.brand small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin-top:-4px}
+.logo{width:34px;height:34px;flex:none}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;flex:1;justify-content:center}
+.tab{border:0;background:transparent;padding:7px 14px;border-radius:10px;cursor:pointer;font-weight:600;color:var(--muted);font-size:14px}
+.tab:hover{background:var(--surface-2);color:var(--ink)}
+.tab[aria-current="page"]{background:var(--primary-soft);color:var(--primary-2)}
+:root[data-theme="dark"] .tab[aria-current="page"]{color:var(--primary)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tab[aria-current="page"]{color:var(--primary)}}
+.top-actions{display:flex;gap:8px;align-items:center}
+@media (max-width:760px){.tabs{order:3;flex-basis:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap}.tab{white-space:nowrap}.top-actions{margin-inline-start:auto}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);padding:8px 16px;border-radius:12px;cursor:pointer;font-weight:600;font-size:14px;box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .12s ease;white-space:nowrap}
+.btn:hover{border-color:var(--line-2);color:var(--ink)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btn.primary{background:linear-gradient(135deg,#2a8574 0%,#1f6659 100%);color:#fff;border-color:transparent;box-shadow:var(--shadow-lg)}
+.btn.primary:hover{color:#fff;filter:brightness(1.06)}
+.btn.accent{background:linear-gradient(135deg,#e38c35,#f5a855);color:#2b1606;border-color:transparent}
+.btn.ghost{background:transparent;box-shadow:none;border-color:transparent;color:var(--muted)}
+.btn.ghost:hover{background:var(--surface-2);color:var(--ink)}
+.btn.danger{color:var(--danger)}
+.btn.sm{padding:5px 10px;font-size:13px;border-radius:9px}
+.btn.icon{padding:6px;width:32px;height:32px;justify-content:center}
+.btn svg{width:16px;height:16px;flex:none}
+.lang-btn{font-weight:700}
+
+main{padding-block:24px 64px}
+.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.page-head h1{font-size:26px;font-weight:800}
+.page-head p{color:var(--muted);max-width:62ch}
+.eyebrow{font-size:12px;font-weight:700;color:var(--accent-2);letter-spacing:.06em;text-transform:uppercase}
+:root[dir="rtl"] .eyebrow{letter-spacing:0}
+.stack-v{display:flex;flex-direction:column;gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+.card h2{font-size:18px;font-weight:700}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.card-head p{color:var(--muted);font-size:13.5px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.spacer{flex:1}
+
+/* forms */
+.field{display:flex;flex-direction:column;gap:6px}
+.field label,.lbl-strong{font-weight:700;font-size:14px;color:var(--ink-2)}
+.field .hint{font-size:12.5px;color:var(--muted)}
+.input,textarea.input,select.input{width:100%;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:9px 12px;font-size:14.5px;color:var(--ink);transition:border-color .12s}
+textarea.input{resize:vertical;min-height:70px;line-height:1.55}
+.input:focus{border-color:var(--primary);outline:none;box-shadow:0 0 0 3px var(--primary-soft)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+
+.switch{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;user-select:none}
+.switch input{appearance:none;width:38px;height:22px;border-radius:99px;background:var(--line-2);position:relative;cursor:pointer;transition:background .15s;flex:none;margin:0}
+.switch input::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:inset-inline-start .15s}
+.switch input:checked{background:var(--primary)}
+.switch input:checked::after{inset-inline-start:19px}
+
+.demo-card{border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--surface)}
+.demo-card.on{border-color:color-mix(in srgb,var(--primary) 45%,var(--line));background:color-mix(in srgb,var(--primary-soft) 40%,var(--surface))}
+.demo-card textarea{min-height:110px;font-size:13.5px}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:2px 10px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--danger-soft);color:var(--danger)}
+.pill.teal{background:var(--primary-soft);color:var(--primary-2)}
+.pill.orange{background:var(--accent-soft);color:var(--accent-2)}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:currentColor}
+.lv{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:12.5px;white-space:nowrap}
+.lv i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* banners */
+.banner{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-radius:12px;background:var(--accent-soft);color:var(--ink-2);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);font-size:14px}
+.banner.teal{background:var(--primary-soft);border-color:color-mix(in srgb,var(--primary) 30%,transparent)}
+.banner.bad{background:var(--danger-soft);border-color:color-mix(in srgb,var(--danger) 30%,transparent)}
+.banner svg{width:20px;height:20px;flex:none;margin-top:2px}
+.banner b{color:var(--ink)}
+
+/* question editor */
+.sec-card{padding:0;overflow:hidden}
+.sec-head{display:flex;gap:10px;align-items:center;padding:14px 16px;background:var(--surface-2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.sec-no{font-weight:800;color:var(--accent-2);font-size:13px;white-space:nowrap}
+.sec-head .input{flex:1;min-width:180px;font-weight:700}
+.q-list{display:flex;flex-direction:column}
+.q-row{display:grid;grid-template-columns:44px 1fr auto;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);align-items:start}
+.q-row:last-child{border-bottom:0}
+.q-num{font-weight:800;color:var(--muted);font-size:13px;padding-top:8px;font-variant-numeric:tabular-nums}
+.q-main{display:flex;flex-direction:column;gap:8px;min-width:0}
+.q-main .top-line{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.q-main select.input{width:auto;padding:6px 10px;font-size:13px}
+.q-main textarea.input{min-height:44px}
+.q-tools{display:flex;gap:4px}
+.lint{display:flex;gap:6px;flex-wrap:wrap}
+.q-add{padding:12px 16px}
+@media (max-width:620px){.q-row{grid-template-columns:1fr}.q-num{padding-top:0}.q-tools{justify-content:flex-end}}
+
+/* survey (respondent) */
+.survey{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.survey-hero{text-align:start}
+.survey-hero h1{font-size:28px;font-weight:800;margin-bottom:6px}
+.progress{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);z-index:10;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;box-shadow:var(--shadow)}
+.progress .bar{height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden;margin-top:6px}
+.progress .bar span{display:block;height:100%;background:linear-gradient(90deg,#2a8574,#3fb89f);border-radius:99px;transition:width .3s ease}
+:root[dir="rtl"] .progress .bar span{background:linear-gradient(270deg,#2a8574,#3fb89f)}
+fieldset.q{border:1px solid var(--line);border-radius:12px;padding:16px;margin:0;background:var(--surface);display:flex;flex-direction:column;gap:12px}
+fieldset.q legend{float:left;width:100%;padding:0;font-weight:700;font-size:15.5px;color:var(--ink);display:flex;gap:8px;align-items:baseline}
+:root[dir="rtl"] fieldset.q legend{float:right}
+fieldset.q legend + *{clear:both}
+.qn{font-size:12px;color:var(--accent-2);font-weight:800;flex:none}
+.req{color:var(--danger)}
+fieldset.q.has-err{border-color:var(--danger);box-shadow:0 0 0 3px var(--danger-soft)}
+.err-msg{display:none;color:var(--danger);font-size:13px;font-weight:600}
+.has-err .err-msg{display:block}
+.likert{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.lk{position:relative;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 4px;border:1px solid var(--line);border-radius:10px;cursor:pointer;text-align:center;font-size:12.5px;color:var(--muted);font-weight:600;line-height:1.3;transition:all .12s}
+.lk:hover{border-color:var(--line-2);background:var(--surface-2)}
+.lk input,.opt input{position:absolute;opacity:0;pointer-events:none}
+.lk .num{width:30px;height:30px;border-radius:50%;border:2px solid var(--line-2);display:grid;place-items:center;font-weight:800;color:var(--ink-2);font-size:14px}
+.lk:has(input:checked){border-color:var(--primary);background:var(--primary-soft);color:var(--ink)}
+.lk:has(input:checked) .num{background:var(--primary);border-color:var(--primary);color:var(--primary-ink)}
+.lk:has(input:focus-visible),.opt:has(input:focus-visible){outline:2px solid var(--primary);outline-offset:2px}
+@media (max-width:560px){.likert{grid-template-columns:1fr}.lk{flex-direction:row;padding:9px 12px;text-align:start;font-size:14px}.lk .num{width:26px;height:26px;font-size:13px}}
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.opt{position:relative;display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-weight:600;font-size:14px;color:var(--ink-2)}
+.opt::before{content:"";width:16px;height:16px;border-radius:50%;border:2px solid var(--line-2);flex:none}
+.opt:hover{background:var(--surface-2)}
+.opt:has(input:checked){border-color:var(--primary);background:var(--primary-soft);color:var(--ink)}
+.opt:has(input:checked)::before{border-color:var(--primary);background:radial-gradient(circle,var(--primary) 45%,transparent 50%)}
+.nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.thanks{text-align:center;padding:48px 24px}
+.thanks .check{width:72px;height:72px;border-radius:50%;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center;margin:0 auto 16px}
+.thanks .check svg{width:36px;height:36px}
+
+/* dashboard */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow)}
+.kpi .k-l{font-size:13px;color:var(--muted);font-weight:600}
+.kpi .k-v{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:4px}
+.kpi .k-s{font-size:12.5px;color:var(--muted);margin-top:2px}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:11px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;padding:5px 12px;border-radius:8px;font-weight:600;font-size:13px;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+.chart-card{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--surface)}
+.chart-card h3{font-size:14.5px;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between;gap:8px}
+.hbars{display:flex;flex-direction:column;gap:7px}
+.hb{display:grid;grid-template-columns:minmax(80px,38%) 1fr auto;gap:10px;align-items:center;font-size:13px}
+.hb .l{color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hb .t{height:14px;background:var(--surface-2);border-radius:4px;overflow:hidden;position:relative}
+.hb .t span{display:block;height:100%;border-radius:0 4px 4px 0;background:var(--c1);min-width:2px}
+:root[dir="rtl"] .hb .t span{border-radius:4px 0 0 4px}
+.hb .v{font-variant-numeric:tabular-nums;color:var(--ink-2);font-weight:600;white-space:nowrap}
+.donut-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.donut-wrap canvas{width:130px;height:130px;flex:none}
+.legend{display:flex;flex-direction:column;gap:5px;font-size:13px;flex:1;min-width:140px}
+.legend div{display:flex;align-items:center;gap:8px}
+.legend i{width:10px;height:10px;border-radius:3px;flex:none}
+.legend b{margin-inline-start:auto;font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink-2)}
+.sbars{display:flex;flex-direction:column;gap:12px}
+.sb{display:grid;grid-template-columns:minmax(110px,30%) 1fr 150px;gap:12px;align-items:center}
+.sb .l{font-weight:600;font-size:14px}
+.sb .t{position:relative;height:20px;background:var(--surface-2);border-radius:4px}
+.sb .t span{position:absolute;inset-block:0;inset-inline-start:0;border-radius:0 4px 4px 0}
+:root[dir="rtl"] .sb .t span{border-radius:4px 0 0 4px}
+.sb .t em{position:absolute;inset-block:-3px;width:1px;background:var(--line-2)}
+.sb .v{display:flex;gap:8px;align-items:center;font-variant-numeric:tabular-nums;font-weight:700}
+@media (max-width:620px){.sb{grid-template-columns:1fr;gap:4px}.hb{grid-template-columns:1fr auto;}.hb .t{grid-column:1/-1;grid-row:2}}
+.scale-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-top:12px}
+.stackbar{display:flex;height:22px;border-radius:5px;overflow:hidden;gap:2px;background:var(--surface)}
+.stackbar span{display:grid;place-items:center;font-size:11px;font-weight:700;min-width:0;overflow:hidden}
+.item-res{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);align-items:center}
+.item-res:last-child{border-bottom:0}
+.item-res .qtext{font-size:14px;font-weight:600}
+.item-res .stats{display:flex;gap:10px;font-size:12.5px;color:var(--muted);margin-top:4px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.item-res .stats b{color:var(--ink-2)}
+@media (max-width:760px){.item-res{grid-template-columns:1fr}}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table.tbl{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:9px 12px;text-align:start;border-bottom:1px solid var(--line);white-space:nowrap}
+.tbl th{background:var(--surface-2);font-weight:700;color:var(--ink-2);font-size:12.5px}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td.num,.tbl th.num{text-align:center}
+.tbl td.wrap{white-space:normal;min-width:220px}
+.tbl tfoot td{background:var(--surface-2);font-size:12.5px}
+.ins-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.ins-list{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:8px;font-size:14px}
+.ins-list li::marker{color:var(--accent-2);font-weight:700}
+.rec{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.rec:last-child{border-bottom:0}
+.rec .meta{font-size:12.5px;color:var(--muted);margin-top:3px}
+.theme-item{padding:10px 12px;border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;gap:3px}
+.theme-item .th{display:flex;justify-content:space-between;gap:8px;font-weight:700}
+.theme-item q{color:var(--muted);font-size:13px}
+.answers{display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--ink-2)}
+.answers div{padding:8px 12px;background:var(--surface-2);border-radius:8px}
+.empty{text-align:center;padding:48px 20px}
+.empty h2{font-size:20px;margin-bottom:6px}
+.empty p{color:var(--muted);max-width:52ch;margin:0 auto 18px}
+.sec-title-row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.sec-title-row h3{font-size:16px}
+.loading{display:grid;place-items:center;min-height:50vh;color:var(--muted);gap:12px}
+.spin{width:18px;height:18px;border-radius:50%;border:2px solid currentColor;border-inline-end-color:transparent;animation:sp .8s linear infinite;display:inline-block;flex:none}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation-duration:2.4s}*{transition:none!important}}
+
+/* modal & toast */
+.modal-back{position:fixed;inset:0;background:rgba(15,23,42,.45);display:grid;place-items:center;z-index:50;padding:16px}
+.modal{background:var(--surface);border-radius:16px;max-width:520px;width:100%;padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.25);display:flex;flex-direction:column;gap:14px;max-height:90vh;overflow:auto}
+.modal.wide{max-width:900px}
+.modal h3{font-size:18px}
+.modal .row{justify-content:flex-end}
+.preview-pages{display:flex;flex-direction:column;gap:12px}
+.preview-pages img{border:1px solid var(--line);border-radius:6px;width:100%}
+.toast{position:fixed;inset-inline-start:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:12px;font-weight:600;font-size:14px;z-index:60;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:calc(100vw - 32px)}
+:root[dir="rtl"] .toast{transform:translateX(50%)}
+.save-state{font-size:12.5px;color:var(--muted);display:inline-flex;gap:6px;align-items:center}
+
+/* report (always light, rendered off-screen for PDF) */
+#report-root{position:fixed;left:-12000px;top:0;width:794px;pointer-events:none;z-index:-1}
+.rp{width:794px;height:1123px;background:#ffffff;color:#0f172a;font-family:"Cairo","Segoe UI",Tahoma,sans-serif;position:relative;overflow:hidden;letter-spacing:0}
+.rp-head{height:54px;padding:0 56px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #2a8574;font-size:11px;color:#64748b}
+.rp-head b{color:#1f6659;font-size:12px}
+.rp-body{position:absolute;top:74px;bottom:62px;left:56px;right:56px;overflow:hidden;display:flex;flex-direction:column;gap:14px;font-size:12.5px;line-height:1.6}
+.rp-foot{position:absolute;bottom:0;left:0;right:0;height:46px;padding:0 56px;display:flex;align-items:center;justify-content:space-between;font-size:10.5px;color:#94a3b8;border-top:1px solid #e2e8f0}
+.rp h2{font-size:20px;color:#1f6659;font-weight:800;border-bottom:1px solid #e2e8f0;padding-bottom:6px;margin-top:4px}
+.rp h3{font-size:14.5px;color:#0f172a;font-weight:700}
+.rp p{color:#334155}
+.rp table{width:100%;border-collapse:collapse;font-size:11.5px}
+.rp th,.rp td{padding:5px 8px;border-bottom:1px solid #e2e8f0;text-align:start;vertical-align:top}
+.rp th{background:#f1f5f4;color:#1f2937;font-weight:700}
+.rp td.n,.rp th.n{text-align:center;white-space:nowrap}
+.rp ul,.rp ol{margin:0;padding-inline-start:20px;display:flex;flex-direction:column;gap:5px;color:#334155}
+.rp .kp{display:flex;gap:10px}
+.rp .kp div{flex:1;border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;background:#f8fafc}
+.rp .kp small{display:block;color:#64748b;font-size:10.5px}
+.rp .kp strong{font-size:20px;color:#0f172a}
+.rp .rb{display:grid;grid-template-columns:36% 1fr 90px;gap:8px;align-items:center;font-size:11.5px;margin-bottom:4px}
+.rp .rb .t{height:11px;background:#eef2f4;border-radius:3px;overflow:hidden}
+.rp .rb .t span{display:block;height:100%;background:#2a8574}
+.rp .sw{display:inline-block;width:9px;height:9px;border-radius:2px;margin-inline-end:5px;vertical-align:middle}
+.rp .box{border:1px solid #e2e8f0;border-radius:10px;padding:12px 14px;background:#fbfcfc}
+.rp .demo-flag{display:inline-block;background:#fdf1e4;color:#9a5412;border-radius:6px;padding:2px 8px;font-weight:700;font-size:11px}
+.rp.cover{background:linear-gradient(160deg,#ffffff 0%,#f4faf8 60%,#fdf4ea 100%)}
+.rp.cover .cv{position:absolute;inset:0;padding:90px 70px;display:flex;flex-direction:column}
+.rp.cover .band{height:10px;background:linear-gradient(90deg,#2a8574,#3fb89f 60%,#e38c35)}
+.rp.cover h1{font-size:36px;font-weight:800;line-height:1.25;color:#0f172a;margin:26px 0 10px}
+.rp.cover .sub{font-size:16px;color:#2a8574;font-weight:700}
+.rp.cover .meta{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rp.cover .meta div{border-top:2px solid #2a8574;padding-top:8px}
+.rp.cover .meta small{display:block;color:#64748b;font-size:11px}
+.rp.cover .meta strong{font-size:18px}
+.rp .stk{display:flex;height:12px;border-radius:3px;overflow:hidden;gap:1px}
+
+/* standalone (GitHub Pages) additions */
+html{color-scheme:light}
+body{margin:0}
+[hidden]{display:none!important}
+img{max-width:100%}
+a{color:var(--primary)}
+a.btn{text-decoration:none}
+.brand{text-decoration:none}
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:32px;align-items:center;padding-block:36px 12px}
+.hero h1{font-size:40px;font-weight:800;line-height:1.2;margin-bottom:12px}
+.hero h1 span{color:var(--primary)}
+.hero p{color:var(--ink-2);font-size:16.5px;max-width:52ch}
+.hero .row{margin-top:22px}
+.hero-art{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:28px}
+.feat .card h3{font-size:15.5px;margin-bottom:4px}
+.feat .card p{color:var(--muted);font-size:13.5px}
+.feat .ic{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:10px;color:#fff}
+.feat .ic svg{width:20px;height:20px}
+@media (max-width:820px){.hero{grid-template-columns:1fr}.hero h1{font-size:30px}}
+.s-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.s-card{display:flex;flex-direction:column;gap:10px}
+.s-card h3{font-size:16.5px;overflow-wrap:anywhere}
+.s-card .meta{font-size:12.5px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap}
+.s-card .row{margin-top:auto}
+.crumb{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+.crumb a{color:var(--muted);text-decoration:none;font-weight:600}
+.crumb a:hover{color:var(--primary)}
+.share-grid{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:20px;align-items:start}
+@media (max-width:720px){.share-grid{grid-template-columns:1fr}}
+.link-box{display:flex;gap:8px}
+.link-box input{font-family:ui-monospace,Consolas,monospace;font-size:13px;direction:ltr}
+.qr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:10px}
+.qr #qr-box{width:200px;height:200px}
+.qr #qr-box img,.qr #qr-box canvas{width:200px!important;height:200px!important}
+.avatar{width:30px;height:30px;border-radius:50%;object-fit:cover;background:var(--primary-soft);display:grid;place-items:center;font-weight:800;color:var(--primary-2);font-size:13px}
+.user-chip{display:flex;align-items:center;gap:8px}
+.icon-btn{border:1px solid var(--line);background:var(--surface);border-radius:10px;width:34px;height:34px;display:grid;place-items:center;cursor:pointer;color:var(--ink-2)}
+.icon-btn svg{width:17px;height:17px}
+.icon-btn:hover{color:var(--ink);border-color:var(--line-2)}
+.footer{padding-block:24px 36px;color:var(--muted);font-size:12.5px;text-align:center}
+</style>
+</head>
+<body>
+
+<div id="app">
+  <header class="top">
+    <div class="wrap top-in" id="top"></div>
+  </header>
+  <main class="wrap" id="main"><div class="loading"><span class="spin"></span></div></main>
+</div>
+<div id="modal-host"></div>
+<div id="toast-host"></div>
+<div id="report-root" aria-hidden="true"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="config.js"></script>
+<script>
+(() => {
+'use strict';
+
+/* ---------------- i18n ---------------- */
+const T = {
+en:{
+  appName:'Istibyan', appSub:'Survey Studio',
+  tSetup:'Setup', tQuestions:'Questions', tTake:'Respondent view', tResults:'Results',
+  langBtn:'العربية',
+  loading:'Loading your questionnaire…',
+  setupEyebrow:'Step 1 · Design', setupTitle:'Set up the questionnaire', setupLead:'Describe the research, choose the demographic fields, then let AI draft a professional questionnaire you can refine.',
+  details:'Questionnaire details', fTitle:'Title', fDesc:'Short description', fDescHint:'Shown to respondents at the start.', fSummary:'Subject summary', fSummaryHint:'Paste text or bullet points: the research topic, goals, key dimensions to measure and the target population.',
+  demoTitle:'Demographic fields', demoLead:'Respondents answer these first. Edit the answer options, one per line.',
+  anonymous:'Anonymous allowed (name optional)', resetOpts:'Reset options', optsEditedWarn:'Changing options after responses arrive can misalign earlier answers.',
+  d_name:'Name', d_gender:'Gender', d_nationality:'Nationality', d_age:'Age', d_marital:'Marital status', d_income:'Monthly income (SAR)', d_region:'Region', d_education:'Education level',
+  genAI:'Generate questionnaire with AI', genTpl:'Build a template draft (no AI)', aiOff:'No AI key is set, so the built-in template draft is used. Add your Anthropic API key in AI settings (✦) to draft with AI.',
+  sampleNote:'This is an example questionnaire so you can explore every feature. Edit it or generate your own from your subject summary.',
+  qEyebrow:'Step 2 · Review', qTitle:'Review the questions', qLead:'Edit wording, change types, reorder, add or delete questions. Warnings flag wording that may bias answers.',
+  draft:'Draft', published:'Open for responses', publish:'Publish questionnaire', unpublish:'Close responses', regen:'Regenerate with AI',
+  addSection:'Add section', addQuestion:'Add question', section:'Section', sectionTitle:'Section title', newSection:'New section', newQuestion:'New question',
+  required:'Required', moveUp:'Move up', moveDown:'Move down', del:'Delete',
+  ty_likert:'Likert (5-point)', ty_mc:'Multiple choice', ty_yesno:'Yes / No', ty_open:'Open-ended',
+  optionsOnePerLine:'Options, one per line',
+  lintDouble:'May ask two things', lintLeading:'Leading wording', lintAbsolute:'Absolute wording', lintLong:'Long question', lintEmpty:'Empty question',
+  shareTitle:'How respondents answer', shareBody:'Respondents open this same page. Share it with Contributor access so they can submit; people with view-only access can read the questionnaire but not answer it.',
+  shareLocal:'This copy is running without the Claude viewer, so responses are saved in this browser only.',
+  nSections:'{n} sections', nQuestions:'{n} questions',
+  saved:'Saved', saving:'Saving…', saveFailed:'Couldn’t save. Check your connection.', readOnly:'You can view this questionnaire but not change it.',
+  // take
+  previewBanner:'Preview mode: you are seeing what respondents see. Submitting adds a real response.',
+  closedTitle:'This questionnaire isn’t open yet', closedBody:'The researcher hasn’t published it. Check back later.',
+  start:'Start', next:'Next', back:'Back', submit:'Submit answers', submitting:'Submitting…',
+  aboutQ:'{n} questions · about {m} minutes', anonNote:'Your answers are confidential and reported only in aggregate.',
+  aboutYou:'About you', step:'Step {i} of {n}', pctDone:'{p}% complete',
+  needAnswer:'Please answer this question.', fixErrors:'Some required questions are unanswered.',
+  namePh:'Your name', nameOptional:'Optional. Leave blank to stay anonymous.', openPh:'Type your answer…', optional:'Optional',
+  thanksTitle:'Thank you!', thanksBody:'Your response has been recorded. We appreciate your time.',
+  viewResults:'View results', another:'Submit another response',
+  already:'You already submitted a response. Submitting again replaces your earlier answers.',
+  noId:'Sign in to claude.ai to submit a response.', noWrite:'Your access to this page is view-only, so answers can’t be submitted. Ask the researcher for Contributor access.',
+  submitFailed:'Your answers couldn’t be submitted. Check your connection and try again.',
+  // likert
+  lk1:'Strongly disagree', lk2:'Disagree', lk3:'Neutral', lk4:'Agree', lk5:'Strongly agree', yes:'Yes', no:'No',
+  // results
+  rEyebrow:'Step 3 · Analyze', rTitle:'Results & analysis', live:'Live responses', demo:'Demo data',
+  demoBanner:'<b>Showing demo data.</b> These {n} generated responses let you preview the analysis and report. Switch to live responses once real answers arrive.',
+  noResp:'No responses yet', noRespBody:'Publish the questionnaire and share this page. Meanwhile you can preview every chart and the PDF report with demo data.', previewDemo:'Preview with demo data',
+  exportPdf:'Export PDF report',
+  kResponses:'Complete responses', kCompletion:'Completion rate', kOverall:'Overall mean', kTime:'Median time', kStarted:'{n} started', kOf5:'out of 5', kMin:'{m} min', kMinutes:'minutes',
+  demoProfile:'Demographic profile', demoProfileLead:'Who answered, by each selected field.',
+  secScores:'Section scores', secScoresLead:'Mean of each respondent’s average across the Likert items in a section.',
+  colSection:'Section', colItems:'Items', colMean:'Mean', colSD:'SD', colLevel:'Level', colAlpha:'Cronbach’s α', colN:'n', colGroup:'Group',
+  alphaNeed:'needs ≥ {n}', alphaNA:'—',
+  scaleLabel:'Interpretation scale:',
+  lv_vlow:'Very low', lv_low:'Low', lv_mod:'Moderate', lv_high:'High', lv_vhigh:'Very high',
+  al_ex:'Excellent', al_good:'Good', al_acc:'Acceptable', al_q:'Questionable', al_poor:'Poor',
+  crossTitle:'Group comparison', crossLead:'Section means by group, tested with one-way ANOVA. Groups with fewer than 2 responses are excluded.',
+  compareBy:'Compare by', anovaRow:'ANOVA', sig:'significant', notSig:'not significant', noCross:'Enable at least one demographic field (other than name) to compare groups.',
+  qResults:'Results by question', freq:'Frequency', pct:'%',
+  openTitle:'Open-ended answers', answersN:'{n} answers', themesAI:'Summarize themes with AI', themesAgain:'Refresh themes', keywords:'Most frequent words', sampleAnswers:'Sample answers', themesNote:'Themes summarized by AI from {n} answers.', noAnswers:'No answers yet.',
+  insightsTitle:'Challenges & recommendations', insightsLead:'Generated from the analysis above. Refine with AI for richer, context-aware wording.',
+  refineAI:'Refine with AI', srcRules:'Rule-based from the data', srcAI:'AI-refined · {d}',
+  findings:'Key findings', challenges:'Challenges & weaknesses', recommendations:'Recommendations', limitations:'Limitations', future:'Future research',
+  pr_high:'High', pr_medium:'Medium', pr_low:'Low', linked:'Addresses: {c}', timeframe:'Timeframe: {t}',
+  // AI
+  aiThinking:'Claude is drafting… this can take up to a minute.', aiWriting:'Receiving the draft…', stop:'Stop',
+  aiErr_not_granted:'AI access wasn’t allowed for this page, so built-in rules are used instead.', aiErr_rate:'AI is busy right now. Try again in a minute.', aiErr_generic:'The AI request didn’t complete. You can try again, or continue with the built-in version.', aiErr_json:'The AI reply couldn’t be read. Try again.', aiErr_unavail:'AI isn’t available in this view.',
+  genDone:'Draft ready: {s} sections, {q} questions. Review them below.', replaceQ:'Replace the current {n} questions with a new draft?', replaceOk:'Replace questions',
+  delQConfirm:'Delete this question? Its collected answers will no longer appear in results.', delSConfirm:'Delete section “{s}” and its {n} questions?', cancel:'Cancel', confirm:'Confirm', ok:'OK',
+  needSummary:'Add a title and a subject summary first, so the draft fits your research.',
+  // pdf
+  pdfBuilding:'Building the report… page {i} of {n}', pdfSaved:'Report saved.', pdfDeclined:'Export cancelled. Nothing was saved.', pdfFailed:'The report couldn’t be created. Try again.', pdfNoSave:'This view can’t save files, so here is the report to review. Open the page in claude.ai to download it.', pdfPreview:'Report preview', close:'Close', pdfLibs:'The PDF tools didn’t load. Check your connection and reload the page.',
+  pdfEmpty:'There are no complete responses to report on yet. Switch to demo data to preview the report.',
+  // report
+  rpSub:'Survey Results Report', rpDate:'Report date', rpSample:'Sample size', rpCompletion:'Completion rate', rpOverall:'Overall mean', rpDemoFlag:'Demo data – not real responses',
+  rpExec:'Executive summary', rpMethod:'Methodology', rpDemo:'Demographic profile', rpResults:'Results by section', rpGroups:'Group comparisons', rpFind:'Key findings', rpChall:'Challenges', rpRecs:'Recommendations', rpLimits:'Limitations & future research', rpAppendix:'Appendix: the questionnaire', rpOpen:'Open-ended themes',
+  rpDesign:'Design', rpDesignTxt:'Cross-sectional online questionnaire.',
+  rpInstrument:'Instrument', rpInstrumentTxt:'{s} sections with {q} questions ({l} five-point Likert items, {m} multiple-choice, {y} yes/no, {o} open-ended), preceded by {d} demographic fields.',
+  rpSampleTxt:'{n} complete responses out of {s} started ({c}% completion).', rpPeriod:'Collection period', rpAnalysis:'Analysis', rpAnalysisTxt:'Frequencies and percentages; means and standard deviations for Likert items; section scores as the mean of each respondent’s item average; Cronbach’s alpha for internal consistency (sections with ≥ 2 items and ≥ {a} complete cases); one-way ANOVA for group differences (α = 0.05). Open-ended answers were grouped into themes.',
+  rpScale:'Interpretation of means', rpRange:'Range', rpPriority:'Priority', rpRec:'Recommendation', rpChallenge:'Linked challenge', rpTime:'Timeframe', rpType:'Type', rpQ:'Question', rpOptions:'Options', rpPage:'Page {i} of {n}',
+  rpBy:'by {f}', rpF:'F', rpP:'p',
+  // insights templates
+  f_overall:'The overall mean score was {m} out of 5 ({lv}) across {k} Likert items, based on {n} complete responses.',
+  f_high:'“{s}” recorded the highest section score (M = {m}, {lv}).',
+  f_low:'“{s}” recorded the lowest section score (M = {m}, {lv}).',
+  f_items:'The highest-rated item was “{q1}” (M = {m1}); the lowest-rated was “{q2}” (M = {m2}).',
+  f_sig:'“{s}” scores differed significantly by {f} (F = {F}, p = {p}): {g1} scored highest (M = {m1}) and {g2} lowest (M = {m2}).',
+  f_nosig:'No statistically significant differences in section scores were found between demographic groups (p ≥ 0.05).',
+  f_yes:'{p}% answered “Yes” to “{q}”.', f_mc:'The most common answer to “{q}” was “{o}” ({p}%).',
+  c_sec_t:'Weak performance in “{s}”', c_sec_e:'M = {m} ({lv}), rank {r} of {k} sections.',
+  c_rel_t:'Relative weakness in “{s}”', c_rel_e:'Rated {lv} overall, but it is the lowest-scoring area (M = {m}).',
+  c_item_t:'Low-rated item: “{q}”', c_item_e:'M = {m}; {p}% disagreed or strongly disagreed.',
+  c_gap_t:'Gap by {f} in “{s}”', c_gap_e:'{g2} (M = {m2}) versus {g1} (M = {m1}); F = {F}, p = {p}.',
+  r_sec:'Run a focused review of “{s}”: examine its lowest items, hold short focus groups with affected respondents to find root causes, and set a measurable target (mean ≥ 3.41) for the next survey round.',
+  r_item:'Assign an owner to the issue behind “{q}”, agree one concrete corrective action, and track it with a follow-up pulse question.',
+  r_gap:'Tailor actions in “{s}” for {g} respondents: check whether current processes, communication and access fit this group, and consult them before redesigning.',
+  r_share:'Share the results with respondents and stakeholders, publish an action plan, and repeat the survey in 6–12 months to measure change.',
+  tf_short:'0–3 months', tf_mid:'3–6 months', tf_long:'6–12 months',
+  l_n30:'Very small sample (n = {n}): results are indicative only and group comparisons are unreliable.',
+  l_n100:'Modest sample (n = {n}): subgroup comparisons with fewer than 30 respondents per group should be read with caution.',
+  l_nok:'The sample (n = {n}) supports overall estimates, but small subgroups still limit comparisons.',
+  l_skew:'The sample is skewed on {f}: {p}% are “{g}”, so findings may not represent other groups.',
+  l_self:'Respondents self-selected into the survey, so the sample may not represent the full target population.',
+  l_report:'Data are self-reported and collected at a single point in time, so they show associations, not causes.',
+  l_alpha:'Internal consistency was low for “{s}” (α = {a}); its items may not measure a single construct.',
+  l_drop:'Only {c}% of respondents who started completed the questionnaire; drop-outs may bias the results.',
+  l_demo:'These results use generated demo data and do not describe a real population.',
+  fr_sample:'Use a probability-based or quota sample to improve representativeness.',
+  fr_qual:'Follow up with qualitative interviews to explain the low scores in “{s}”.',
+  fr_repeat:'Repeat the survey periodically to track change over time.',
+  fr_factor:'Validate the instrument with factor analysis once the sample exceeds 200 responses.',
+  exec:'This report presents the results of “{t}”, completed by {n} respondents ({c}% completion rate). Overall, respondents rated the {k} measured dimensions at a {lv} level (M = {m} of 5). The strongest area was “{hi}” (M = {mh}) and the weakest was “{lo}” (M = {ml}). {g} The report closes with {r} prioritized recommendations.',
+  exec_sig:'{n} statistically significant group difference(s) were identified.', exec_nosig:'No significant differences were found between demographic groups.',
+  anonymousLabel:'Anonymous',
+  tShare:'Share', tMy:'My questionnaires', backToList:'My questionnaires',
+  heroTitle:'Professional questionnaires, <span>analyzed and reported</span>', heroLead:'Describe your research, let AI draft the questions, send one link to your sample, and export a complete PDF report with statistics, findings and recommendations.',
+  signIn:'Sign in with Google', signOut:'Sign out', signInFailed:'Sign-in didn’t complete. Try again, and allow pop-ups for this site.',
+  feat1t:'AI-drafted questions', feat1b:'Neutral, single-concept items organized into sections, ready for you to edit.',
+  feat2t:'One link per questionnaire', feat2b:'Publish, then share a link or QR code. Responses flow into your dashboard.',
+  feat3t:'Real statistics', feat3b:'Means, SD, Cronbach’s α, ANOVA group comparisons and themes from open answers.',
+  feat4t:'PDF report', feat4b:'Cover, methodology, charts, findings, challenges and prioritized recommendations.',
+  myLead:'Each questionnaire has its own respondent link. Only you can see its responses.',
+  newQ:'New questionnaire', fromExample:'Start from example', noSurveys:'No questionnaires yet', noSurveysBody:'Create one from scratch, or start from the example to see every feature.',
+  open:'Open', copyLink:'Copy link', linkCopied:'Link copied.', copyFailed:'Couldn’t copy automatically. Select the link and copy it.', updated:'Updated {d}', responsesN:'{n} responses', untitled:'Untitled questionnaire',
+  delSurveyConfirm:'Delete “{t}” and all its responses? This can’t be undone.', deleted:'Questionnaire deleted.',
+  shareEyebrow:'Step 3 · Publish', shareH:'Share with your sample', shareLead:'Publish the questionnaire, then send this link or QR code to respondents. Each person can submit one response.',
+  respLink:'Respondent link', openLink:'Open link', qrTitle:'QR code', downloadQr:'Download QR', shareWhatsApp:'Share on WhatsApp', shareEmail:'Share by email', shareMsg:'Please take a few minutes to answer this questionnaire: {t}',
+  notPublished:'The link works only while the questionnaire is published.', publishFirst:'Publish the questionnaire to start collecting responses.',
+  localMode:'Local mode: no Firebase project is connected, so questionnaires and responses are saved in this browser only and links won’t work for other people. Add your Firebase settings to config.js to share links.',
+  notFound:'This questionnaire isn’t available', notFoundBody:'The link may be wrong, or the researcher has closed it.',
+  respondBrand:'Made with Istibyan',
+  aiSettings:'AI settings', aiKeyLabel:'Anthropic API key', aiKeyHint:'Stored only in this browser and sent only to Anthropic’s API. Create a key at console.anthropic.com. Without a key, the built-in template and rule-based analysis are used.', save:'Save', remove:'Remove', keySaved:'API key saved in this browser.', keyRemoved:'API key removed.',
+  aiNeedKey:'Add your Anthropic API key in AI settings (the ✦ button at the top) to use AI.',
+  aiErr_key:'The API key was rejected. Check it in AI settings.', aiErr_refused:'Claude declined this request. Try rewording the subject summary.',
+  permDenied:'You don’t have access to this questionnaire.', loadFailed:'Couldn’t load data. Check your connection and reload.'
+},
+ar:{
+  appName:'استبيان', appSub:'استوديو الاستبيانات',
+  tSetup:'الإعداد', tQuestions:'الأسئلة', tTake:'واجهة المستجيب', tResults:'النتائج',
+  langBtn:'English',
+  loading:'جارٍ تحميل الاستبيان…',
+  setupEyebrow:'الخطوة 1 · التصميم', setupTitle:'إعداد الاستبيان', setupLead:'صِف موضوع البحث، واختر الحقول الديموغرافية، ثم دع الذكاء الاصطناعي يصوغ استبياناً احترافياً يمكنك تعديله.',
+  details:'بيانات الاستبيان', fTitle:'العنوان', fDesc:'وصف مختصر', fDescHint:'يظهر للمستجيبين في البداية.', fSummary:'ملخص الموضوع', fSummaryHint:'الصق نصاً أو نقاطاً: موضوع البحث وأهدافه والمحاور المراد قياسها والفئة المستهدفة.',
+  demoTitle:'الحقول الديموغرافية', demoLead:'يجيب عنها المستجيبون أولاً. عدّل خيارات الإجابة، خيار في كل سطر.',
+  anonymous:'السماح بعدم ذكر الاسم (اختياري)', resetOpts:'استعادة الخيارات', optsEditedWarn:'تعديل الخيارات بعد وصول الردود قد يُربك الإجابات السابقة.',
+  d_name:'الاسم', d_gender:'الجنس', d_nationality:'الجنسية', d_age:'العمر', d_marital:'الحالة الاجتماعية', d_income:'الدخل الشهري (ريال)', d_region:'المنطقة', d_education:'المستوى التعليمي',
+  genAI:'توليد الاستبيان بالذكاء الاصطناعي', genTpl:'إنشاء مسودة من قالب (بدون ذكاء اصطناعي)', aiOff:'لم يُضبط مفتاح للذكاء الاصطناعي، لذا تُستخدم مسودة القالب المدمج. أضف مفتاح Anthropic API من الإعدادات (✦) للصياغة بالذكاء الاصطناعي.',
+  sampleNote:'هذا استبيان نموذجي لتجربة جميع المزايا. عدّله أو ولّد استبيانك من ملخص الموضوع.',
+  qEyebrow:'الخطوة 2 · المراجعة', qTitle:'مراجعة الأسئلة', qLead:'عدّل الصياغة وأنواع الأسئلة، وأعد ترتيبها، وأضف أو احذف. تنبّهك الإشارات إلى الصياغات التي قد تُحيّز الإجابات.',
+  draft:'مسودة', published:'مفتوح لاستقبال الردود', publish:'نشر الاستبيان', unpublish:'إيقاف استقبال الردود', regen:'إعادة التوليد بالذكاء الاصطناعي',
+  addSection:'إضافة محور', addQuestion:'إضافة سؤال', section:'المحور', sectionTitle:'عنوان المحور', newSection:'محور جديد', newQuestion:'سؤال جديد',
+  required:'إلزامي', moveUp:'نقل لأعلى', moveDown:'نقل لأسفل', del:'حذف',
+  ty_likert:'ليكرت (خماسي)', ty_mc:'اختيار من متعدد', ty_yesno:'نعم / لا', ty_open:'سؤال مفتوح',
+  optionsOnePerLine:'الخيارات، خيار في كل سطر',
+  lintDouble:'قد يسأل عن أمرين', lintLeading:'صياغة موجِّهة', lintAbsolute:'صياغة مطلقة', lintLong:'سؤال طويل', lintEmpty:'سؤال فارغ',
+  shareTitle:'كيف يجيب المستجيبون', shareBody:'يفتح المستجيبون هذه الصفحة نفسها. شاركها بصلاحية «مساهم» ليتمكنوا من الإرسال؛ أصحاب صلاحية العرض فقط يمكنهم قراءة الاستبيان دون الإجابة.',
+  shareLocal:'هذه النسخة تعمل خارج عارض Claude، لذا تُحفظ الردود في هذا المتصفح فقط.',
+  nSections:'{n} محاور', nQuestions:'{n} سؤالاً',
+  saved:'تم الحفظ', saving:'جارٍ الحفظ…', saveFailed:'تعذّر الحفظ. تحقق من الاتصال.', readOnly:'يمكنك عرض هذا الاستبيان دون تعديله.',
+  previewBanner:'وضع المعاينة: هذا ما يراه المستجيبون. الإرسال يضيف رداً حقيقياً.',
+  closedTitle:'هذا الاستبيان غير متاح بعد', closedBody:'لم ينشره الباحث بعد. عُد لاحقاً.',
+  start:'ابدأ', next:'التالي', back:'السابق', submit:'إرسال الإجابات', submitting:'جارٍ الإرسال…',
+  aboutQ:'{n} سؤالاً · نحو {m} دقائق', anonNote:'إجاباتك سرية ولا تُعرض إلا بشكل إجمالي.',
+  aboutYou:'معلومات عنك', step:'الخطوة {i} من {n}', pctDone:'اكتمل {p}%',
+  needAnswer:'يرجى الإجابة عن هذا السؤال.', fixErrors:'بعض الأسئلة الإلزامية دون إجابة.',
+  namePh:'اسمك', nameOptional:'اختياري. اتركه فارغاً لتبقى مجهول الهوية.', openPh:'اكتب إجابتك…', optional:'اختياري',
+  thanksTitle:'شكراً لك!', thanksBody:'تم تسجيل ردك. نقدّر وقتك.',
+  viewResults:'عرض النتائج', another:'إرسال رد آخر',
+  already:'لقد أرسلت رداً من قبل. الإرسال مجدداً يستبدل إجاباتك السابقة.',
+  noId:'سجّل الدخول إلى claude.ai لإرسال رد.', noWrite:'صلاحيتك على هذه الصفحة للعرض فقط، لذا لا يمكن إرسال الإجابات. اطلب من الباحث صلاحية «مساهم».',
+  submitFailed:'تعذّر إرسال إجاباتك. تحقق من الاتصال وحاول مرة أخرى.',
+  lk1:'غير موافق بشدة', lk2:'غير موافق', lk3:'محايد', lk4:'موافق', lk5:'موافق بشدة', yes:'نعم', no:'لا',
+  rEyebrow:'الخطوة 3 · التحليل', rTitle:'النتائج والتحليل', live:'الردود الفعلية', demo:'بيانات تجريبية',
+  demoBanner:'<b>تُعرض بيانات تجريبية.</b> تتيح لك هذه الردود المولّدة ({n}) معاينة التحليل والتقرير. انتقل إلى الردود الفعلية عند وصولها.',
+  noResp:'لا توجد ردود بعد', noRespBody:'انشر الاستبيان وشارك هذه الصفحة. وحتى ذلك الحين يمكنك معاينة جميع الرسوم وتقرير PDF ببيانات تجريبية.', previewDemo:'المعاينة ببيانات تجريبية',
+  exportPdf:'تصدير تقرير PDF',
+  kResponses:'الردود المكتملة', kCompletion:'نسبة الإكمال', kOverall:'المتوسط العام', kTime:'الوقت الوسيط', kStarted:'بدأ {n}', kOf5:'من 5', kMin:'{m} دقيقة', kMinutes:'دقائق',
+  demoProfile:'الخصائص الديموغرافية', demoProfileLead:'توزيع المستجيبين حسب كل حقل مختار.',
+  secScores:'درجات المحاور', secScoresLead:'متوسط معدلات المستجيبين على بنود ليكرت في كل محور.',
+  colSection:'المحور', colItems:'البنود', colMean:'المتوسط', colSD:'الانحراف المعياري', colLevel:'المستوى', colAlpha:'ألفا كرونباخ', colN:'العدد', colGroup:'الفئة',
+  alphaNeed:'يتطلب ≥ {n}', alphaNA:'—',
+  scaleLabel:'مقياس التفسير:',
+  lv_vlow:'منخفض جداً', lv_low:'منخفض', lv_mod:'متوسط', lv_high:'مرتفع', lv_vhigh:'مرتفع جداً',
+  al_ex:'ممتاز', al_good:'جيد', al_acc:'مقبول', al_q:'مشكوك فيه', al_poor:'ضعيف',
+  crossTitle:'المقارنة بين الفئات', crossLead:'متوسطات المحاور حسب الفئة، باختبار تحليل التباين الأحادي. تُستبعد الفئات التي لديها أقل من ردّين.',
+  compareBy:'المقارنة حسب', anovaRow:'تحليل التباين', sig:'دال إحصائياً', notSig:'غير دال', noCross:'فعّل حقلاً ديموغرافياً واحداً على الأقل (غير الاسم) للمقارنة بين الفئات.',
+  qResults:'النتائج حسب السؤال', freq:'التكرار', pct:'%',
+  openTitle:'الإجابات المفتوحة', answersN:'{n} إجابة', themesAI:'تلخيص المحاور بالذكاء الاصطناعي', themesAgain:'تحديث المحاور', keywords:'الكلمات الأكثر تكراراً', sampleAnswers:'نماذج من الإجابات', themesNote:'محاور لخّصها الذكاء الاصطناعي من {n} إجابة.', noAnswers:'لا توجد إجابات بعد.',
+  insightsTitle:'التحديات والتوصيات', insightsLead:'مولّدة من التحليل أعلاه. حسّنها بالذكاء الاصطناعي لصياغة أغنى ومراعية للسياق.',
+  refineAI:'تحسين بالذكاء الاصطناعي', srcRules:'قواعد مبنية على البيانات', srcAI:'محسّنة بالذكاء الاصطناعي · {d}',
+  findings:'أبرز النتائج', challenges:'التحديات ونقاط الضعف', recommendations:'التوصيات', limitations:'حدود الدراسة', future:'بحوث مستقبلية',
+  pr_high:'عالية', pr_medium:'متوسطة', pr_low:'منخفضة', linked:'تعالج: {c}', timeframe:'المدة: {t}',
+  aiThinking:'يعمل Claude على الصياغة… قد يستغرق ذلك دقيقة.', aiWriting:'جارٍ استلام المسودة…', stop:'إيقاف',
+  aiErr_not_granted:'لم يُسمح باستخدام الذكاء الاصطناعي لهذه الصفحة، لذا تُستخدم القواعد المدمجة.', aiErr_rate:'الذكاء الاصطناعي مشغول الآن. حاول بعد دقيقة.', aiErr_generic:'لم يكتمل طلب الذكاء الاصطناعي. يمكنك المحاولة مجدداً أو المتابعة بالنسخة المدمجة.', aiErr_json:'تعذّرت قراءة رد الذكاء الاصطناعي. حاول مجدداً.', aiErr_unavail:'الذكاء الاصطناعي غير متاح في هذا العرض.',
+  genDone:'المسودة جاهزة: {s} محاور و{q} سؤالاً. راجعها أدناه.', replaceQ:'استبدال الأسئلة الحالية ({n}) بمسودة جديدة؟', replaceOk:'استبدال الأسئلة',
+  delQConfirm:'حذف هذا السؤال؟ لن تظهر إجاباته المجمعة في النتائج.', delSConfirm:'حذف المحور «{s}» وأسئلته ({n})؟', cancel:'إلغاء', confirm:'تأكيد', ok:'حسناً',
+  needSummary:'أضف عنواناً وملخصاً للموضوع أولاً لتناسب المسودة بحثك.',
+  pdfBuilding:'جارٍ إعداد التقرير… صفحة {i} من {n}', pdfSaved:'تم حفظ التقرير.', pdfDeclined:'أُلغي التصدير ولم يُحفظ شيء.', pdfFailed:'تعذّر إنشاء التقرير. حاول مرة أخرى.', pdfNoSave:'لا يمكن حفظ الملفات في هذا العرض، وهذه معاينة للتقرير. افتح الصفحة في claude.ai لتنزيله.', pdfPreview:'معاينة التقرير', close:'إغلاق', pdfLibs:'لم تُحمَّل أدوات PDF. تحقق من الاتصال وأعد تحميل الصفحة.',
+  pdfEmpty:'لا توجد ردود مكتملة لإعداد التقرير. انتقل إلى البيانات التجريبية لمعاينته.',
+  rpSub:'تقرير نتائج الاستبيان', rpDate:'تاريخ التقرير', rpSample:'حجم العينة', rpCompletion:'نسبة الإكمال', rpOverall:'المتوسط العام', rpDemoFlag:'بيانات تجريبية – ليست ردوداً حقيقية',
+  rpExec:'الملخص التنفيذي', rpMethod:'المنهجية', rpDemo:'الخصائص الديموغرافية', rpResults:'النتائج حسب المحاور', rpGroups:'المقارنات بين الفئات', rpFind:'أبرز النتائج', rpChall:'التحديات', rpRecs:'التوصيات', rpLimits:'حدود الدراسة والبحوث المستقبلية', rpAppendix:'ملحق: أداة الاستبيان', rpOpen:'محاور الإجابات المفتوحة',
+  rpDesign:'التصميم', rpDesignTxt:'استبيان إلكتروني مقطعي.',
+  rpInstrument:'الأداة', rpInstrumentTxt:'{s} محاور تضم {q} سؤالاً ({l} بنداً بمقياس ليكرت الخماسي، و{m} اختيار من متعدد، و{y} نعم/لا، و{o} مفتوحة)، تسبقها {d} حقول ديموغرافية.',
+  rpSampleTxt:'{n} رداً مكتملاً من أصل {s} بدأوا الاستبيان (نسبة الإكمال {c}%).', rpPeriod:'فترة جمع البيانات', rpAnalysis:'التحليل', rpAnalysisTxt:'التكرارات والنسب المئوية؛ المتوسطات والانحرافات المعيارية لبنود ليكرت؛ درجة المحور بوصفها متوسط معدلات المستجيبين؛ معامل ألفا كرونباخ للاتساق الداخلي (للمحاور ذات بندين فأكثر و{a} حالة مكتملة فأكثر)؛ تحليل التباين الأحادي للفروق بين الفئات (α = 0.05). جُمعت الإجابات المفتوحة في محاور.',
+  rpScale:'تفسير المتوسطات', rpRange:'المدى', rpPriority:'الأولوية', rpRec:'التوصية', rpChallenge:'التحدي المرتبط', rpTime:'المدة', rpType:'النوع', rpQ:'السؤال', rpOptions:'الخيارات', rpPage:'صفحة {i} من {n}',
+  rpBy:'حسب {f}', rpF:'F', rpP:'p',
+  f_overall:'بلغ المتوسط العام {m} من 5 (مستوى {lv}) على {k} بنداً بمقياس ليكرت، استناداً إلى {n} رداً مكتملاً.',
+  f_high:'سجّل محور «{s}» أعلى درجة (م = {m}، {lv}).',
+  f_low:'سجّل محور «{s}» أدنى درجة (م = {m}، {lv}).',
+  f_items:'أعلى البنود تقييماً «{q1}» (م = {m1})، وأدناها «{q2}» (م = {m2}).',
+  f_sig:'اختلفت درجات «{s}» اختلافاً دالاً حسب {f} (F = {F}، p = {p}): الأعلى {g1} (م = {m1}) والأدنى {g2} (م = {m2}).',
+  f_nosig:'لم تُرصد فروق دالة إحصائياً في درجات المحاور بين الفئات الديموغرافية (p ≥ 0.05).',
+  f_yes:'أجاب {p}% بـ«نعم» عن «{q}».', f_mc:'الإجابة الأكثر شيوعاً عن «{q}» كانت «{o}» ({p}%).',
+  c_sec_t:'ضعف الأداء في «{s}»', c_sec_e:'م = {m} ({lv})، الترتيب {r} من {k} محاور.',
+  c_rel_t:'ضعف نسبي في «{s}»', c_rel_e:'تقييمه العام {lv}، لكنه الأدنى بين المحاور (م = {m}).',
+  c_item_t:'بند منخفض التقييم: «{q}»', c_item_e:'م = {m}؛ {p}% غير موافقين أو غير موافقين بشدة.',
+  c_gap_t:'فجوة حسب {f} في «{s}»', c_gap_e:'{g2} (م = {m2}) مقابل {g1} (م = {m1})؛ F = {F}، p = {p}.',
+  r_sec:'إجراء مراجعة مركّزة لمحور «{s}»: فحص أدنى بنوده، وعقد مجموعات نقاش قصيرة مع المتأثرين لتحديد الأسباب الجذرية، ووضع هدف قابل للقياس (متوسط ≥ 3.41) للدورة القادمة من الاستبيان.',
+  r_item:'تكليف مسؤول بالمشكلة وراء «{q}»، والاتفاق على إجراء تصحيحي محدد، ومتابعته بسؤال قياس سريع لاحق.',
+  r_gap:'تكييف الإجراءات في «{s}» لفئة {g}: التحقق من ملاءمة الإجراءات والتواصل وإمكانية الوصول لهذه الفئة، واستشارتها قبل إعادة التصميم.',
+  r_share:'مشاركة النتائج مع المستجيبين وأصحاب المصلحة، ونشر خطة عمل، وإعادة الاستبيان بعد 6–12 شهراً لقياس التغير.',
+  tf_short:'0–3 أشهر', tf_mid:'3–6 أشهر', tf_long:'6–12 شهراً',
+  l_n30:'عينة صغيرة جداً (ن = {n}): النتائج استرشادية فقط والمقارنات بين الفئات غير موثوقة.',
+  l_n100:'عينة محدودة (ن = {n}): تُقرأ المقارنات للفئات التي تقل عن 30 مستجيباً بحذر.',
+  l_nok:'تدعم العينة (ن = {n}) التقديرات العامة، لكن صغر بعض الفئات يحدّ من المقارنات.',
+  l_skew:'العينة غير متوازنة في {f}: {p}% من فئة «{g}»، لذا قد لا تمثل النتائج الفئات الأخرى.',
+  l_self:'شارك المستجيبون طوعاً، لذا قد لا تمثل العينة المجتمع المستهدف بالكامل.',
+  l_report:'البيانات ذاتية التقرير وجُمعت في نقطة زمنية واحدة، فهي تُظهر ارتباطات لا علاقات سببية.',
+  l_alpha:'كان الاتساق الداخلي منخفضاً في «{s}» (α = {a})؛ قد لا تقيس بنوده مفهوماً واحداً.',
+  l_drop:'أكمل {c}% فقط ممن بدأوا الاستبيان؛ قد يؤدي الانسحاب إلى تحيّز النتائج.',
+  l_demo:'تستند هذه النتائج إلى بيانات تجريبية مولّدة ولا تصف مجتمعاً حقيقياً.',
+  fr_sample:'استخدام عينة احتمالية أو حصصية لتحسين التمثيل.',
+  fr_qual:'إجراء مقابلات نوعية لتفسير انخفاض الدرجات في «{s}».',
+  fr_repeat:'تكرار الاستبيان دورياً لرصد التغير عبر الزمن.',
+  fr_factor:'التحقق من صدق الأداة بالتحليل العاملي عند تجاوز العينة 200 رد.',
+  exec:'يعرض هذا التقرير نتائج «{t}» التي أكملها {n} مستجيباً (نسبة الإكمال {c}%). قيّم المستجيبون المحاور المقيسة ({k}) إجمالاً بمستوى {lv} (م = {m} من 5). كان أقوى المحاور «{hi}» (م = {mh}) وأضعفها «{lo}» (م = {ml}). {g} ويختتم التقرير بـ{r} توصيات مرتبة حسب الأولوية.',
+  exec_sig:'رُصد {n} فرق دال إحصائياً بين الفئات.', exec_nosig:'لم تُرصد فروق دالة بين الفئات الديموغرافية.',
+  anonymousLabel:'مجهول',
+  tShare:'المشاركة', tMy:'استبياناتي', backToList:'استبياناتي',
+  heroTitle:'استبيانات احترافية <span>بتحليل وتقرير كامل</span>', heroLead:'صِف بحثك، ودع الذكاء الاصطناعي يصوغ الأسئلة، وأرسل رابطاً واحداً لعينتك، ثم صدّر تقرير PDF كاملاً بالإحصاءات والنتائج والتوصيات.',
+  signIn:'تسجيل الدخول بحساب Google', signOut:'تسجيل الخروج', signInFailed:'لم يكتمل تسجيل الدخول. حاول مجدداً واسمح بالنوافذ المنبثقة لهذا الموقع.',
+  feat1t:'أسئلة يصوغها الذكاء الاصطناعي', feat1b:'بنود محايدة أحادية المفهوم مرتبة في محاور وجاهزة للتعديل.',
+  feat2t:'رابط لكل استبيان', feat2b:'انشر ثم شارك الرابط أو رمز QR، وتصل الردود إلى لوحتك مباشرة.',
+  feat3t:'إحصاءات حقيقية', feat3b:'متوسطات وانحرافات معيارية وألفا كرونباخ وتحليل التباين ومحاور الإجابات المفتوحة.',
+  feat4t:'تقرير PDF', feat4b:'غلاف ومنهجية ورسوم ونتائج وتحديات وتوصيات مرتبة حسب الأولوية.',
+  myLead:'لكل استبيان رابط خاص بالمستجيبين، ولا يطّلع على ردوده أحد غيرك.',
+  newQ:'استبيان جديد', fromExample:'البدء من النموذج', noSurveys:'لا توجد استبيانات بعد', noSurveysBody:'أنشئ استبياناً من البداية، أو ابدأ من النموذج لتجربة جميع المزايا.',
+  open:'فتح', copyLink:'نسخ الرابط', linkCopied:'تم نسخ الرابط.', copyFailed:'تعذّر النسخ تلقائياً. حدّد الرابط وانسخه.', updated:'آخر تحديث {d}', responsesN:'{n} رداً', untitled:'استبيان بلا عنوان',
+  delSurveyConfirm:'حذف «{t}» وجميع ردوده؟ لا يمكن التراجع عن ذلك.', deleted:'تم حذف الاستبيان.',
+  shareEyebrow:'الخطوة 3 · النشر', shareH:'المشاركة مع العينة', shareLead:'انشر الاستبيان ثم أرسل هذا الرابط أو رمز QR إلى المستجيبين. يمكن لكل شخص إرسال رد واحد.',
+  respLink:'رابط المستجيبين', openLink:'فتح الرابط', qrTitle:'رمز QR', downloadQr:'تنزيل رمز QR', shareWhatsApp:'مشاركة عبر واتساب', shareEmail:'مشاركة بالبريد', shareMsg:'نرجو تخصيص دقائق للإجابة عن هذا الاستبيان: {t}',
+  notPublished:'يعمل الرابط فقط أثناء نشر الاستبيان.', publishFirst:'انشر الاستبيان لبدء استقبال الردود.',
+  localMode:'الوضع المحلي: لا يوجد مشروع Firebase متصل، لذا تُحفظ الاستبيانات والردود في هذا المتصفح فقط ولن تعمل الروابط لدى الآخرين. أضف إعدادات Firebase إلى ملف config.js لمشاركة الروابط.',
+  notFound:'هذا الاستبيان غير متاح', notFoundBody:'قد يكون الرابط غير صحيح، أو أن الباحث أغلقه.',
+  respondBrand:'صُنع باستخدام استبيان',
+  aiSettings:'إعدادات الذكاء الاصطناعي', aiKeyLabel:'مفتاح Anthropic API', aiKeyHint:'يُحفظ في هذا المتصفح فقط ولا يُرسل إلا إلى واجهة Anthropic. أنشئ مفتاحاً من console.anthropic.com. بدون مفتاح تُستخدم المسودة المدمجة والتحليل المبني على القواعد.', save:'حفظ', remove:'إزالة', keySaved:'تم حفظ المفتاح في هذا المتصفح.', keyRemoved:'تمت إزالة المفتاح.',
+  aiNeedKey:'أضف مفتاح Anthropic API من إعدادات الذكاء الاصطناعي (زر ✦ في الأعلى) لاستخدام الذكاء الاصطناعي.',
+  aiErr_key:'رُفض مفتاح API. تحقق منه في إعدادات الذكاء الاصطناعي.', aiErr_refused:'رفض Claude هذا الطلب. جرّب إعادة صياغة ملخص الموضوع.',
+  permDenied:'ليست لديك صلاحية الوصول إلى هذا الاستبيان.', loadFailed:'تعذّر تحميل البيانات. تحقق من الاتصال وأعد تحميل الصفحة.'
+}};
+const S = {
+  lang:'en', tab:'setup', ready:false, mode:'local', canEdit:true, readOnly:false,
+  route:{ name:'home' }, user:null, mine:null, counts:{}, loadErr:null,
+  survey:null, isSample:false, responses:[], insights:{}, src:null, cross:null,
+  take:null, save:'idle', ai:null, busy:null, modal:null
+};
+const CFG = window.ISTIBYAN_CONFIG || {};
+const TAB_ID = 'tab' + Math.random().toString(36).slice(2, 9);
+function t(k, v){ let s = (T[S.lang] && T[S.lang][k] != null) ? T[S.lang][k] : (T.en[k] != null ? T.en[k] : k);
+  if (v) for (const x in v) s = s.split('{'+x+'}').join(v[x]); return s; }
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = (x, d=2) => (x == null || !isFinite(x)) ? '—' : Number(x).toFixed(d);
+const pct = (a, b) => b ? Math.round(a / b * 1000) / 10 : 0;
+const uid = p => (p||'') + Math.random().toString(36).slice(2, 10);
+const lsGet = k => { try { return localStorage.getItem(k); } catch(e){ return null; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch(e){} };
+const lsDel = k => { try { localStorage.removeItem(k); } catch(e){} };
+const lsJSON = (k, d) => { try { const v = JSON.parse(lsGet(k) || 'null'); return v == null ? d : v; } catch(e){ return d; } };
+const newId = () => { const a = new Uint8Array(12); crypto.getRandomValues(a); return Array.from(a, b => 'abcdefghijkmnpqrstuvwxyz23456789'[b % 32]).join(''); };
+const respondUrl = id => location.origin + location.pathname + '#/r/' + id;
+const fmtDate = ms => ms ? new Date(ms).toLocaleDateString(S.lang === 'ar' ? 'ar-SA-u-nu-latn' : 'en-GB', { year:'numeric', month:'short', day:'numeric' }) : '';
+function copyText(txt, inputEl){ const done = () => toast(t('linkCopied'));
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(done, () => fallback()); else fallback();
+  function fallback(){ if (inputEl) { inputEl.focus(); inputEl.select(); try { if (document.execCommand('copy')) return done(); } catch(e){} } toast(t('copyFailed')); } }
+
+/* ---------------- icons ---------------- */
+const I = {
+  up:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>',
+  down:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>',
+  x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>',
+  spark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg>',
+  file:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M14 3H6a1 1 0 00-1 1v16a1 1 0 001 1h12a1 1 0 001-1V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>',
+  info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
+  send:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 12l16-8-6 16-2-7z"/></svg>',
+  logo:'<svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="3" width="22" height="30" rx="4" fill="#2a8574"/><rect x="11" y="9" width="12" height="2.4" rx="1.2" fill="#fff" opacity=".9"/><rect x="11" y="14" width="9" height="2.4" rx="1.2" fill="#fff" opacity=".7"/><rect x="20" y="26" width="4" height="11" rx="1.5" fill="#e38c35"/><rect x="26" y="21" width="4" height="16" rx="1.5" fill="#e38c35"/><rect x="32" y="15" width="4" height="22" rx="1.5" fill="#f5a855"/></svg>'
+};
+
+/* ---------------- demographics ---------------- */
+const DEMO_KEYS = ['name','gender','nationality','age','marital','income','region','education'];
+const DEF_OPTS = {
+  en:{ gender:['Male','Female'], nationality:['Saudi','Other Arab nationality','Non-Arab nationality'],
+    age:['18–24','25–34','35–44','45–54','55–64','65 or older'], marital:['Single','Married','Divorced','Widowed'],
+    income:['Less than 5,000','5,000–9,999','10,000–14,999','15,000–19,999','20,000 or more','Prefer not to say'],
+    region:['Central','Eastern','Western','Northern','Southern'], education:['High school or less','Diploma','Bachelor’s degree','Master’s degree','Doctorate'] },
+  ar:{ gender:['ذكر','أنثى'], nationality:['سعودي','جنسية عربية أخرى','جنسية غير عربية'],
+    age:['18–24','25–34','35–44','45–54','55–64','65 فأكثر'], marital:['أعزب/عزباء','متزوج/متزوجة','مطلق/مطلقة','أرمل/أرملة'],
+    income:['أقل من 5,000','5,000–9,999','10,000–14,999','15,000–19,999','20,000 فأكثر','أفضّل عدم الإفصاح'],
+    region:['الوسطى','الشرقية','الغربية','الشمالية','الجنوبية'], education:['ثانوي أو أقل','دبلوم','بكالوريوس','ماجستير','دكتوراه'] }
+};
+function demoOpts(key, sv){ const d = (sv || S.survey).demographics[key] || {}; return (d.opts && d.opts.length) ? d.opts : (DEF_OPTS[S.lang][key] || []); }
+function demoOn(sv){ sv = sv || S.survey; return DEMO_KEYS.filter(k => sv.demographics[k] && sv.demographics[k].on); }
+function demoGroupFields(sv){ return demoOn(sv).filter(k => k !== 'name'); }
+
+/* ---------------- sample survey ---------------- */
+function sampleSurvey(lang){
+  const L = lang === 'ar';
+  const q = (type, text, opts) => ({ id: uid('q'), type, text, opts: opts || null, req: type !== 'open' });
+  const s = (title, items) => ({ id: uid('s'), title, items });
+  const demographics = {};
+  DEMO_KEYS.forEach(k => demographics[k] = { on: k !== 'name' && k !== 'marital', opts: null, anon: true });
+  return {
+    v: 1, status: 'draft', lang,
+    title: L ? 'رضا المستفيدين عن الخدمات الحكومية الإلكترونية' : 'Citizen Satisfaction with E-Government Services',
+    description: L ? 'يهدف هذا الاستبيان إلى قياس تجربتك مع منصة الخدمات الحكومية الإلكترونية. يستغرق نحو 6 دقائق.' : 'This questionnaire measures your experience with the national e-government services platform. It takes about 6 minutes.',
+    summary: L ? '• الموضوع: رضا المستفيدين عن منصة الخدمات الحكومية الإلكترونية\n• الأهداف: قياس سهولة الاستخدام وجودة الخدمة والثقة والأمان والدعم، وتحديد أولويات التحسين\n• الفئة المستهدفة: المستفيدون البالغون (18+) الذين استخدموا المنصة خلال آخر 12 شهراً\n• الاستخدام: دعم خطة تحسين الخدمات للعام القادم'
+      : '• Topic: citizen satisfaction with the national e-government services platform\n• Goals: measure ease of use, service quality, trust & security, and support; identify improvement priorities\n• Target population: adult users (18+) who used the platform in the last 12 months\n• Use: inform next year’s service improvement plan',
+    demographics,
+    sections: L ? [
+      s('سهولة الاستخدام', [q('likert','التنقل في المنصة سهل وواضح.'), q('likert','أستطيع إكمال طلب الخدمة دون مساعدة خارجية.'), q('likert','التعليمات في كل صفحة مفهومة.'), q('likert','تعمل المنصة بشكل جيد على هاتفي المحمول.')]),
+      s('جودة الخدمة', [q('likert','تُنجز الطلبات خلال المدة المعلنة.'), q('likert','المعلومات التي تقدمها المنصة دقيقة.'), q('likert','توفر المنصة الخدمات التي أحتاجها.'), q('mc','ما القناة التي تستخدمها غالباً للوصول إلى الخدمات؟',['تطبيق الجوال','الموقع الإلكتروني','مراكز الخدمة','مركز الاتصال'])]),
+      s('الثقة والأمان', [q('likert','أثق بأن المنصة تحمي بياناتي الشخصية.'), q('likert','أشعر بأن عملية تسجيل الدخول آمنة.'), q('likert','أُبلَّغ بكيفية استخدام بياناتي.'), q('yesno','هل واجهت عطلاً تقنياً أثناء تقديم طلب؟')]),
+      s('الدعم والتواصل', [q('likert','يستجيب فريق الدعم لاستفساراتي بسرعة.'), q('likert','يحل فريق الدعم مشكلتي من التواصل الأول.'), q('likert','أتلقى إشعارات في الوقت المناسب عن حالة طلبي.')]),
+      s('ملاحظاتك', [q('open','ما أكبر تحدٍّ تواجهه عند استخدام المنصة؟'), q('open','ما التحسين الأهم الذي يطوّر تجربتك؟')])
+    ] : [
+      s('Ease of use', [q('likert','The platform’s navigation is easy to follow.'), q('likert','I can complete a service request without outside help.'), q('likert','The instructions on each page are clear.'), q('likert','The platform works well on my mobile phone.')]),
+      s('Service quality', [q('likert','Requests are completed within the stated time.'), q('likert','The information the platform provides is accurate.'), q('likert','The platform offers the services I need.'), q('mc','Which channel do you use most often to access services?',['Mobile app','Website','Service center','Call center'])]),
+      s('Trust & security', [q('likert','I trust the platform to protect my personal data.'), q('likert','The login process feels secure.'), q('likert','I am informed about how my data is used.'), q('yesno','Have you experienced a technical failure while submitting a request?')]),
+      s('Support & communication', [q('likert','Support staff respond to my inquiries promptly.'), q('likert','Support staff resolve my issue on the first contact.'), q('likert','I receive timely notifications about my request status.')]),
+      s('Your feedback', [q('open','What is the biggest challenge you face when using the platform?'), q('open','What one improvement would most improve your experience?')])
+    ]
+  };
+}
+
+/* ---------------- storage (Firebase, or this browser in local mode) ---------------- */
+const Store = {
+  auth:null, db:null, subs:[], mineUnsub:null,
+  async init(){
+    const cfg = CFG.firebase;
+    if (cfg && cfg.apiKey && window.firebase) {
+      try { firebase.initializeApp(cfg); this.auth = firebase.auth(); this.db = firebase.firestore(); S.mode = 'cloud'; }
+      catch(e){ console.error(e); S.mode = 'local'; }
+    }
+    if (S.mode === 'cloud') {
+      try { await this.auth.getRedirectResult(); } catch(e){ if (e && e.code) toast(t('signInFailed')); }
+      await new Promise(res => { let first = true;
+        this.auth.onAuthStateChanged(u => {
+          S.user = u && !u.isAnonymous ? { uid:u.uid, name:u.displayName || '', email:u.email || '', photo:u.photoURL || '' } : null;
+          if (first) { first = false; res(); } else onAuth();
+        }); });
+    } else {
+      const id = lsGet('istb.uid') || ('local' + newId()); lsSet('istb.uid', id); S.user = { uid:id, local:true, name:'' };
+    }
+  },
+  async signIn(){ const p = new firebase.auth.GoogleAuthProvider();
+    try { await this.auth.signInWithPopup(p); }
+    catch(e){ const c = e && e.code;
+      if (c === 'auth/popup-blocked' || c === 'auth/operation-not-supported-in-this-environment') return this.auth.signInWithRedirect(p);
+      if (c !== 'auth/popup-closed-by-user' && c !== 'auth/cancelled-popup-request') { console.error(e); toast(t('signInFailed') + (c ? ' (' + c + ')' : ''), 7000); } } },
+  signOut(){ return this.auth.signOut(); },
+  async respondentUid(){ if (S.mode === 'local') return S.user.uid; const u = this.auth.currentUser; if (u) return u.uid; const c = await this.auth.signInAnonymously(); return c.user.uid; },
+  stop(){ this.subs.forEach(f => { try { f(); } catch(e){} }); this.subs = []; clearTimeout(this._timer); },
+  // ---- creator: list of my questionnaires
+  watchMine(){
+    if (this.mineUnsub) { this.mineUnsub(); this.mineUnsub = null; }
+    if (S.mode === 'local') { const all = lsJSON('istb.surveys', {});
+      S.mine = Object.keys(all).map(id => Object.assign({ id }, all[id]));
+      S.mine.forEach(s => S.counts[s.id] = lsJSON('istb.resp.' + s.id, []).filter(r => r && r.status === 'complete').length); return; }
+    if (!S.user) { S.mine = null; return; }
+    S.mine = null;
+    this.mineUnsub = this.db.collection('surveys').where('ownerUid', '==', S.user.uid).onSnapshot(snap => {
+      S.mine = snap.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      S.mine.forEach(s => { if (S.counts[s.id] == null) { S.counts[s.id] = '…';
+        this.db.collection('surveys').doc(s.id).collection('responses').where('status', '==', 'complete').get()
+          .then(q => { S.counts[s.id] = q.size; if (S.route.name === 'home') render(); }).catch(() => { S.counts[s.id] = '—'; }); } });
+      if (S.route.name === 'home') render();
+    }, e => { console.error(e); S.loadErr = t('loadFailed'); S.mine = []; if (S.route.name === 'home') render(); });
+  },
+  async create(sv){
+    const id = newId(); const now = Date.now();
+    const doc = Object.assign(JSON.parse(JSON.stringify(sv)), { ownerUid: S.user.uid, createdAt: now, updatedAt: now, by: TAB_ID });
+    if (S.mode === 'local') { const all = lsJSON('istb.surveys', {}); all[id] = doc; lsSet('istb.surveys', JSON.stringify(all)); }
+    else await this.db.collection('surveys').doc(id).set(doc);
+    return id;
+  },
+  async remove(id){
+    if (S.mode === 'local') { const all = lsJSON('istb.surveys', {}); delete all[id]; lsSet('istb.surveys', JSON.stringify(all)); lsDel('istb.resp.' + id); lsDel('istb.ins.' + id); this.watchMine(); return; }
+    const ref = this.db.collection('surveys').doc(id);
+    const rs = await ref.collection('responses').get();
+    for (let i = 0; i < rs.docs.length; i += 400) { const b = this.db.batch(); rs.docs.slice(i, i + 400).forEach(d => b.delete(d.ref)); await b.commit(); }
+    try { await ref.collection('private').doc('insights').delete(); } catch(e){}
+    await ref.delete();
+  },
+  // ---- creator: one questionnaire, live
+  open(id){
+    this.stop(); S.survey = null; S.responses = []; S.insights = {}; S.loadErr = null; S.readOnly = false; S.take = null; invalidate();
+    if (S.mode === 'local') {
+      const all = lsJSON('istb.surveys', {}); S.survey = all[id] || null; if (!S.survey) S.loadErr = t('notFound');
+      S.responses = lsJSON('istb.resp.' + id, []); S.insights = { live: lsJSON('istb.ins.' + id, null) }; return;
+    }
+    const ref = this.db.collection('surveys').doc(id); let first = true;
+    this.subs.push(ref.onSnapshot(snap => {
+      if (!snap.exists) { S.survey = null; S.loadErr = t('notFound'); render(); return; }
+      const d = snap.data(); if (!first && d.by === TAB_ID) return;
+      const clone = JSON.parse(JSON.stringify(d));
+      const ae = document.activeElement;
+      if (!first && ae && ae.closest('#main') && /INPUT|TEXTAREA|SELECT/.test(ae.tagName)) { S.pendingRemote = clone; return; }
+      first = false; S.survey = clone; invalidate(); render();
+    }, e => { S.loadErr = e && e.code === 'permission-denied' ? t('permDenied') : t('loadFailed'); render(); }));
+    this.subs.push(ref.collection('responses').onSnapshot(snap => {
+      S.responses = snap.docs.map(d => d.data()); invalidate();
+      if (S.tab === 'results' || S.tab === 'share') render();
+    }, e => console.error(e)));
+    this.subs.push(ref.collection('private').doc('insights').onSnapshot(snap => {
+      if (!snap.exists) return; const d = snap.data();
+      if (d.by !== TAB_ID) { S.insights.live = d.live ? JSON.parse(JSON.stringify(d.live)) : null; if (S.tab === 'results') render(); }
+    }, () => {}));
+  },
+  _timer:null,
+  saveSurvey(){ if (!S.survey || S.readOnly) return; S.save = 'saving'; paintSave(); clearTimeout(this._timer); this._timer = setTimeout(() => this._flush(), 650); },
+  async _flush(){
+    const id = S.route.id; if (!id || !S.survey) return;
+    S.survey.updatedAt = Date.now(); S.survey.by = TAB_ID;
+    if (S.mode === 'local') { const all = lsJSON('istb.surveys', {}); all[id] = S.survey; lsSet('istb.surveys', JSON.stringify(all)); S.save = 'saved'; paintSave(); return; }
+    try { await this.db.collection('surveys').doc(id).set(JSON.parse(JSON.stringify(S.survey))); S.save = 'saved'; }
+    catch(e){ console.error(e); S.save = 'failed'; if (e && e.code === 'permission-denied') { S.readOnly = true; render(); } }
+    paintSave();
+  },
+  async saveInsights(){ const id = S.route.id; const live = S.insights.live || null;
+    if (S.mode === 'local') { lsSet('istb.ins.' + id, JSON.stringify(live)); return; }
+    try { await this.db.collection('surveys').doc(id).collection('private').doc('insights').set({ live: JSON.parse(JSON.stringify(live)), by: TAB_ID, at: Date.now() }); }
+    catch(e){ console.error(e); } },
+  // ---- respondent
+  async loadPublic(id){
+    if (S.mode === 'local') { const all = lsJSON('istb.surveys', {}); return all[id] || null; }
+    try { const s = await this.db.collection('surveys').doc(id).get(); return s.exists ? s.data() : null; } catch(e){ return null; }
+  },
+  async myResponse(id){ if (S.mode === 'local') return null;
+    try { const uid = await this.respondentUid(); const s = await this.db.collection('surveys').doc(id).collection('responses').doc(uid).get(); return s.exists ? s.data() : null; }
+    catch(e){ return null; } },
+  async writeResponse(rec){ const id = S.route.id;
+    if (S.mode === 'local') { const arr = lsJSON('istb.resp.' + id, []); const i = arr.findIndex(r => r.id === rec.id); if (i >= 0) arr[i] = rec; else arr.push(rec);
+      lsSet('istb.resp.' + id, JSON.stringify(arr)); if (S.route.name === 'edit') { S.responses = arr; invalidate(); } return; }
+    const uid = await this.respondentUid(); rec.id = uid;
+    await this.db.collection('surveys').doc(id).collection('responses').doc(uid).set(rec);
+  }
+};
+
+/* ---------------- statistics ---------------- */
+const mean = a => a.length ? a.reduce((x,y)=>x+y,0)/a.length : NaN;
+const sd = a => { if (a.length < 2) return NaN; const m = mean(a); return Math.sqrt(a.reduce((s,x)=>s+(x-m)*(x-m),0)/(a.length-1)); };
+const variance = a => { const s = sd(a); return s*s; };
+function level(m){ if (!isFinite(m)) return null; if (m <= 1.8) return 'vlow'; if (m <= 2.6) return 'low'; if (m <= 3.4) return 'mod'; if (m <= 4.2) return 'high'; return 'vhigh'; }
+const LEVELS = [['vlow','1.00 – 1.80'],['low','1.81 – 2.60'],['mod','2.61 – 3.40'],['high','3.41 – 4.20'],['vhigh','4.21 – 5.00']];
+function alphaLabel(a){ if (!isFinite(a)) return ''; if (a >= .9) return 'al_ex'; if (a >= .8) return 'al_good'; if (a >= .7) return 'al_acc'; if (a >= .6) return 'al_q'; return 'al_poor'; }
+const ALPHA_MIN = 10;
+function lgamma(x){ const c=[76.18009172947146,-86.50532032941677,24.01409824083091,-1.231739572450155,0.1208650973866179e-2,-0.5395239384953e-5]; let y=x, tmp=x+5.5; tmp-=(x+0.5)*Math.log(tmp); let ser=1.000000000190015; for (let j=0;j<6;j++) ser+=c[j]/++y; return -tmp+Math.log(2.5066282746310005*ser/x); }
+function betacf(a,b,x){ const FP=1e-300; const qab=a+b,qap=a+1,qam=a-1; let c=1,d=1-qab*x/qap; if(Math.abs(d)<FP)d=FP; d=1/d; let h=d;
+  for (let m=1;m<=300;m++){ const m2=2*m; let aa=m*(b-m)*x/((qam+m2)*(a+m2)); d=1+aa*d; if(Math.abs(d)<FP)d=FP; c=1+aa/c; if(Math.abs(c)<FP)c=FP; d=1/d; h*=d*c;
+    aa=-(a+m)*(qab+m)*x/((a+m2)*(qap+m2)); d=1+aa*d; if(Math.abs(d)<FP)d=FP; c=1+aa/c; if(Math.abs(c)<FP)c=FP; d=1/d; const del=d*c; h*=del; if(Math.abs(del-1)<3e-12) break; } return h; }
+function ibeta(x,a,b){ if (x<=0) return 0; if (x>=1) return 1; const bt=Math.exp(lgamma(a+b)-lgamma(a)-lgamma(b)+a*Math.log(x)+b*Math.log(1-x)); return x<(a+1)/(a+b+2) ? bt*betacf(a,b,x)/a : 1-bt*betacf(b,a,1-x)/b; }
+function fPval(F,d1,d2){ if (!(F > 0) || !isFinite(F)) return 1; return ibeta(d2/(d2+d1*F), d2/2, d1/2); }
+function anova(groups){ // groups: arrays of numbers
+  const gs = groups.filter(g => g.length >= 2); if (gs.length < 2) return null;
+  const all = gs.flat(), N = all.length, k = gs.length; if (N - k < 1) return null;
+  const gm = mean(all); let ssb = 0, ssw = 0;
+  gs.forEach(g => { const m = mean(g); ssb += g.length*(m-gm)*(m-gm); g.forEach(x => ssw += (x-m)*(x-m)); });
+  const d1 = k-1, d2 = N-k; if (ssw === 0) return null;
+  const F = (ssb/d1)/(ssw/d2); return { F, p: fPval(F,d1,d2), eta: ssb/(ssb+ssw), d1, d2 };
+}
+function fmtP(p){ if (p == null) return '—'; return p < .001 ? '< .001' : p.toFixed(3).replace(/^0/, ''); }
+
+function analyze(sv, responses){
+  const complete = responses.filter(r => r && r.status === 'complete' && r.answers);
+  const A = { sv, n: complete.length, started: responses.length, complete, items:{}, sections:[], demo:{}, overall:null };
+  A.completion = pct(A.n, A.started);
+  const durs = complete.filter(r => r.startedAt && r.submittedAt).map(r => (r.submittedAt - r.startedAt)/60000).filter(x => x > 0 && x < 240).sort((a,b)=>a-b);
+  A.medianMin = durs.length ? durs[Math.floor(durs.length/2)] : null;
+  const times = complete.map(r => r.submittedAt).filter(Boolean).sort((a,b)=>a-b);
+  A.period = times.length ? [times[0], times[times.length-1]] : null;
+  // demographics
+  demoGroupFields(sv).forEach(k => { const opts = demoOpts(k, sv); const c = opts.map(()=>0); let n=0;
+    complete.forEach(r => { const v = r.demo && r.demo[k]; if (Number.isInteger(v) && v >= 0 && v < opts.length) { c[v]++; n++; } });
+    A.demo[k] = { opts, counts:c, n }; });
+  // items
+  let qn = 0;
+  sv.sections.forEach(sec => sec.items.forEach(q => { qn++;
+    const it = { q, no: qn, sec };
+    if (q.type === 'likert') { const vals = []; const c=[0,0,0,0,0];
+      complete.forEach(r => { const v = Number(r.answers[q.id]); if (v>=1 && v<=5 && Number.isInteger(v)) { vals.push(v); c[v-1]++; } });
+      Object.assign(it, { vals, counts:c, n: vals.length, mean: mean(vals), sd: sd(vals) }); it.level = level(it.mean);
+    } else if (q.type === 'mc' || q.type === 'yesno') { const opts = q.type === 'yesno' ? [t('yes'), t('no')] : (q.opts || []); const c = opts.map(()=>0); let n=0;
+      complete.forEach(r => { let v = r.answers[q.id]; if (q.type === 'yesno') v = v === 1 ? 0 : v === 0 ? 1 : null; if (Number.isInteger(v) && v>=0 && v<opts.length) { c[v]++; n++; } });
+      Object.assign(it, { opts, counts:c, n });
+    } else { const ans = []; complete.forEach(r => { const v = r.answers[q.id]; if (typeof v === 'string' && v.trim()) ans.push(v.trim().slice(0, 1000)); }); Object.assign(it, { answers: ans, n: ans.length }); }
+    A.items[q.id] = it; }));
+  // sections
+  const personAll = complete.map(() => []);
+  sv.sections.forEach(sec => { const lk = sec.items.filter(q => q.type === 'likert'); if (!lk.length) return;
+    const scores = []; const byResp = [];
+    complete.forEach((r, ri) => { const v = lk.map(q => Number(r.answers[q.id])).filter(x => x>=1 && x<=5); if (v.length) { const m = mean(v); scores.push(m); byResp.push({ r, m }); personAll[ri].push(...v); } });
+    let alpha = null, alphaN = 0;
+    if (lk.length >= 2) { const rows = complete.map(r => lk.map(q => Number(r.answers[q.id]))).filter(row => row.every(x => x>=1 && x<=5)); alphaN = rows.length;
+      if (rows.length >= ALPHA_MIN) { const k = lk.length; const iv = lk.map((_,j) => variance(rows.map(r => r[j]))); const tv = variance(rows.map(r => r.reduce((a,b)=>a+b,0)));
+        alpha = tv > 0 ? (k/(k-1))*(1 - iv.reduce((a,b)=>a+b,0)/tv) : null; } }
+    A.sections.push({ sec, items: lk, scores, byResp, n: scores.length, mean: mean(scores), sd: sd(scores), level: level(mean(scores)), alpha, alphaN });
+  });
+  const pm = personAll.filter(a => a.length).map(mean);
+  A.overall = { mean: mean(pm), sd: sd(pm), level: level(mean(pm)), k: A.sections.reduce((s,x)=>s+x.items.length,0) };
+  // cross-tab for each group field
+  A.cross = {};
+  demoGroupFields(sv).forEach(f => { const opts = demoOpts(f, sv);
+    A.cross[f] = A.sections.map(s => { const groups = opts.map(() => []);
+      s.byResp.forEach(({r, m}) => { const g = r.demo && r.demo[f]; if (Number.isInteger(g) && g>=0 && g<opts.length) groups[g].push(m); });
+      return { groups: groups.map((g,i) => ({ label: opts[i], n: g.length, mean: mean(g) })), test: anova(groups) }; }); });
+  return A;
+}
+
+/* ---------------- demo data ---------------- */
+function rng(seed){ let a = seed >>> 0; return () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t2 = Math.imul(a ^ a >>> 15, 1 | a); t2 = t2 + Math.imul(t2 ^ t2 >>> 7, 61 | t2) ^ t2; return ((t2 ^ t2 >>> 14) >>> 0) / 4294967296; }; }
+const OPEN_POOL = {
+  en:[['Pages load slowly at peak times.','Too many steps to finish a request.','Hard to reach support by phone.','I did not get updates about my request.','Login codes arrive late.','Some services are missing from the app.','Instructions use technical terms.','The app crashes when I upload documents.','Not clear which documents are required.','Waiting time is longer than stated.'],
+       ['A live chat with support staff.','Send SMS updates at each step.','Simplify the forms and reduce steps.','Show clear processing times.','Improve the mobile app stability.','Allow saving a request as a draft.','Add a guide or video for each service.','Faster response from support.','One login for all services.','Explain how my data is used.']],
+  ar:[['بطء تحميل الصفحات في أوقات الذروة.','كثرة الخطوات لإكمال الطلب.','صعوبة التواصل مع الدعم هاتفياً.','لا تصلني تحديثات عن حالة طلبي.','تأخر وصول رمز الدخول.','بعض الخدمات غير متوفرة في التطبيق.','التعليمات تستخدم مصطلحات تقنية.','يتوقف التطبيق عند رفع المستندات.','عدم وضوح المستندات المطلوبة.','مدة الانتظار أطول من المعلن.'],
+       ['محادثة مباشرة مع فريق الدعم.','إرسال رسائل نصية في كل مرحلة.','تبسيط النماذج وتقليل الخطوات.','توضيح مدة الإنجاز لكل خدمة.','تحسين استقرار تطبيق الجوال.','إمكانية حفظ الطلب كمسودة.','إضافة دليل أو فيديو لكل خدمة.','سرعة استجابة الدعم.','دخول موحد لجميع الخدمات.','توضيح كيفية استخدام بياناتي.']]
+};
+const DEMO_W = { gender:[.55,.45], nationality:[.7,.2,.1], age:[.18,.3,.24,.15,.09,.04], marital:[.35,.55,.06,.04], income:[.2,.28,.22,.13,.1,.07], region:[.32,.22,.24,.1,.12], education:[.12,.18,.45,.2,.05] };
+let demoCache = { key:null, data:null };
+function demoData(){
+  const sv = S.survey;
+  const key = S.lang + '|' + JSON.stringify(sv.sections.map(s => s.items.map(q => q.id + q.type + (q.opts||[]).length))) + '|' + demoGroupFields(sv).map(k => k + demoOpts(k).length).join(',');
+  if (demoCache.key === key) return demoCache.data;
+  const R = rng(20260927); const N = 148, NC = 132;
+  const norm = () => { let u=0,v=0; while(!u)u=R(); while(!v)v=R(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
+  const pick = w => { const s = w.reduce((a,b)=>a+b,0); let x = R()*s; for (let i=0;i<w.length;i++){ x -= w[i]; if (x <= 0) return i; } return w.length-1; };
+  const BASE = [3.95, 3.45, 3.15, 2.7, 3.6, 3.3, 3.8, 2.95];
+  const out = []; const now = Date.now(); const t0 = now - 21*864e5;
+  for (let i=0;i<N;i++){
+    const demo = {};
+    demoGroupFields(sv).forEach(k => { const n = demoOpts(k).length; let w = DEMO_W[k]; if (!w || w.length !== n) w = Array.from({length:n},(_,j)=>1/(1+j*0.35)); demo[k] = pick(w); });
+    const trait = norm()*0.45; const answers = {};
+    let si = 0, openIdx = 0;
+    sv.sections.forEach(sec => { const lk = sec.items.some(q => q.type === 'likert'); let base = BASE[si % BASE.length] + trait + norm()*0.3;
+      if (lk) { const g = demo.gender, a = demo.age, e = demo.education, rg = demo.region;
+        if (si % 4 === 0 && a != null) base -= 0.2*Math.max(0, a-2);
+        if (si % 4 === 3 && g === 1) base += 0.35;
+        if (si % 4 === 2 && e != null) base += 0.12*e - 0.2;
+        if (si % 4 === 1 && rg === 3) base -= 0.55; if (si % 4 === 1 && rg === 4) base -= 0.3;
+        si++; }
+      sec.items.forEach((q, qi) => {
+        if (q.type === 'likert') answers[q.id] = Math.max(1, Math.min(5, Math.round(base + ((qi*37)%7 - 3)*0.07 + norm()*0.62)));
+        else if (q.type === 'mc') { const n = (q.opts||[]).length; if (n) answers[q.id] = pick(Array.from({length:n},(_,j)=>1/(1+j*0.6))); }
+        else if (q.type === 'yesno') answers[q.id] = R() < 0.34 ? 1 : 0;
+        else { const pool = OPEN_POOL[S.lang][openIdx % 2]; openIdx++; if (R() < 0.62) answers[q.id] = pool[Math.floor(Math.pow(R(),1.4)*pool.length)]; }
+      }); });
+    const st = t0 + R()*20*864e5; const done = i < NC;
+    out.push({ id:'demo'+i, status: done ? 'complete' : 'started', startedAt: st, submittedAt: done ? st + (3.5 + R()*9)*60000 : null, demo, answers: done ? answers : {} });
+  }
+  demoCache = { key, data: out }; return out;
+}
+
+/* ---------------- analysis state ---------------- */
+let anCache = { key:null, A:null };
+function invalidate(){ anCache.key = null; }
+function currentSrc(){ const live = S.responses.filter(r => r && r.status === 'complete').length; if (S.src) return S.src; return live > 0 ? 'live' : 'demo'; }
+function getA(){ const src = currentSrc(); const data = src === 'demo' ? demoData() : S.responses;
+  const key = src + '|' + (S.survey.updatedAt||0) + '|' + data.length + '|' + S.lang + '|' + demoCache.key;
+  if (anCache.key !== key) { anCache = { key, A: analyze(S.survey, data) }; anCache.A.src = src; }
+  return anCache.A; }
+
+/* ---------------- insights (rule-based) ---------------- */
+const qShort = s => { s = String(s||''); return s.length > 90 ? s.slice(0, 87) + '…' : s; };
+const fieldName = f => t('d_' + f);
+function sigDiffs(A){ const out = [];
+  Object.keys(A.cross || {}).forEach(f => A.cross[f].forEach((c, si) => { if (c.test && c.test.p < .05) { const gs = c.groups.filter(g => g.n >= 2 && isFinite(g.mean)).sort((a,b)=>b.mean-a.mean);
+    if (gs.length >= 2) out.push({ f, s: A.sections[si], test: c.test, hi: gs[0], lo: gs[gs.length-1] }); } }));
+  return out.sort((a,b) => a.test.p - b.test.p); }
+function ruleInsights(A){
+  const secs = A.sections.filter(s => isFinite(s.mean)); const sorted = secs.slice().sort((a,b)=>b.mean-a.mean);
+  const lv = x => t('lv_' + x); const F = [], C = [], R = [], L = [], FR = [];
+  const likertItems = Object.values(A.items).filter(i => i.q.type === 'likert' && i.n).sort((a,b)=>b.mean-a.mean);
+  if (secs.length) F.push(t('f_overall', { m: fmt(A.overall.mean), lv: lv(A.overall.level), k: A.overall.k, n: A.n }));
+  if (sorted.length > 1) { F.push(t('f_high', { s: sorted[0].sec.title, m: fmt(sorted[0].mean), lv: lv(sorted[0].level) })); const lo = sorted[sorted.length-1]; F.push(t('f_low', { s: lo.sec.title, m: fmt(lo.mean), lv: lv(lo.level) })); }
+  if (likertItems.length > 1) { const a = likertItems[0], b = likertItems[likertItems.length-1]; F.push(t('f_items', { q1: qShort(a.q.text), m1: fmt(a.mean), q2: qShort(b.q.text), m2: fmt(b.mean) })); }
+  const sd = sigDiffs(A);
+  sd.slice(0, 3).forEach(d => F.push(t('f_sig', { s: d.s.sec.title, f: fieldName(d.f), F: fmt(d.test.F), p: fmtP(d.test.p), g1: d.hi.label, m1: fmt(d.hi.mean), g2: d.lo.label, m2: fmt(d.lo.mean) })));
+  if (!sd.length && Object.keys(A.cross).length && A.n >= 10) F.push(t('f_nosig'));
+  Object.values(A.items).forEach(i => { if (!i.n) return;
+    if (i.q.type === 'yesno') F.push(t('f_yes', { p: fmt(pct(i.counts[0], i.n), 1), q: qShort(i.q.text) }));
+    if (i.q.type === 'mc') { const mx = i.counts.indexOf(Math.max(...i.counts)); F.push(t('f_mc', { q: qShort(i.q.text), o: i.opts[mx], p: fmt(pct(i.counts[mx], i.n), 1) })); } });
+  // challenges
+  const asc = sorted.slice().reverse(); const weak = asc.filter(s => s.mean <= 3.4);
+  weak.forEach(s => { C.push({ title: t('c_sec_t', { s: s.sec.title }), evidence: t('c_sec_e', { m: fmt(s.mean), lv: lv(s.level), r: sorted.indexOf(s)+1, k: sorted.length }) });
+    R.push({ action: t('r_sec', { s: s.sec.title }), challenge: t('c_sec_t', { s: s.sec.title }), priority: 'high', timeframe: t('tf_short') }); });
+  if (!weak.length && asc.length) { const s = asc[0]; C.push({ title: t('c_rel_t', { s: s.sec.title }), evidence: t('c_rel_e', { m: fmt(s.mean), lv: lv(s.level) }) });
+    R.push({ action: t('r_sec', { s: s.sec.title }), challenge: t('c_rel_t', { s: s.sec.title }), priority: 'medium', timeframe: t('tf_mid') }); }
+  likertItems.filter(i => i.mean < 3).slice(-3).reverse().forEach(i => { const dis = pct(i.counts[0] + i.counts[1], i.n);
+    const title = t('c_item_t', { q: qShort(i.q.text) }); C.push({ title, evidence: t('c_item_e', { m: fmt(i.mean), p: fmt(dis, 1) }) });
+    R.push({ action: t('r_item', { q: qShort(i.q.text) }), challenge: title, priority: i.mean < 2.6 ? 'high' : 'medium', timeframe: t('tf_short') }); });
+  sd.slice(0, 2).forEach(d => { const title = t('c_gap_t', { f: fieldName(d.f), s: d.s.sec.title });
+    C.push({ title, evidence: t('c_gap_e', { g2: d.lo.label, m2: fmt(d.lo.mean), g1: d.hi.label, m1: fmt(d.hi.mean), F: fmt(d.test.F), p: fmtP(d.test.p) }) });
+    R.push({ action: t('r_gap', { s: d.s.sec.title, g: d.lo.label }), challenge: title, priority: 'medium', timeframe: t('tf_mid') }); });
+  R.push({ action: t('r_share'), challenge: '', priority: 'low', timeframe: t('tf_long') });
+  // limitations
+  if (A.src === 'demo') L.push(t('l_demo'));
+  L.push(t(A.n < 30 ? 'l_n30' : A.n < 100 ? 'l_n100' : 'l_nok', { n: A.n }));
+  Object.keys(A.demo).forEach(f => { const d = A.demo[f]; if (!d.n) return; const mx = Math.max(...d.counts); if (mx/d.n > .7 && d.opts.length > 1) L.push(t('l_skew', { f: fieldName(f), p: fmt(pct(mx, d.n), 1), g: d.opts[d.counts.indexOf(mx)] })); });
+  if (A.started && A.completion < 80) L.push(t('l_drop', { c: fmt(A.completion, 1) }));
+  A.sections.forEach(s => { if (s.alpha != null && s.alpha < .6) L.push(t('l_alpha', { s: s.sec.title, a: fmt(s.alpha) })); });
+  L.push(t('l_self')); L.push(t('l_report'));
+  FR.push(t('fr_sample')); if (asc.length) FR.push(t('fr_qual', { s: asc[0].sec.title })); FR.push(t('fr_repeat')); if (A.n < 200) FR.push(t('fr_factor'));
+  const summary = sorted.length ? t('exec', { t: S.survey.title, n: A.n, c: fmt(A.completion, 1), k: sorted.length, lv: lv(A.overall.level), m: fmt(A.overall.mean), hi: sorted[0].sec.title, mh: fmt(sorted[0].mean), lo: sorted[sorted.length-1].sec.title, ml: fmt(sorted[sorted.length-1].mean), g: sd.length ? t('exec_sig', { n: sd.length }) : t('exec_nosig'), r: R.length }) : '';
+  return { summary, findings: F, challenges: C, recs: R, limits: L, future: FR, source: 'rules' };
+}
+function insightsFor(A){ const slot = S.insights[A.src]; if (slot && slot.report && slot.report.n === A.n && slot.report.lang === S.lang) return slot.report; return ruleInsights(A); }
+function themesFor(A, qid){ const slot = S.insights[A.src]; const th = slot && slot.themes && slot.themes[qid]; return (th && th.lang === S.lang) ? th : null; }
+function slot(src){ if (!S.insights[src]) S.insights[src] = { themes:{}, report:null }; if (!S.insights[src].themes) S.insights[src].themes = {}; return S.insights[src]; }
+
+/* keyword fallback */
+const STOP = new Set(('the a an and or of to in on for with is are was were be been it this that my i me we our you your at as by from not no do does did can could would should will have has had too very more most so if but than then there their they them what which when how who all any some one ' +
+  'في من على إلى عن مع هذا هذه ذلك التي الذي أن إن كان كانت لا لم لن ما هل هو هي أنا نحن كل بعض عند أو ثم قد لقد تم يتم غير بين حتى').split(/\s+/));
+function keywords(answers){ const c = {}; answers.forEach(a => { const seen = new Set(); a.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').split(/\s+/).forEach(w => { if (w.length < 3 || STOP.has(w) || seen.has(w)) return; seen.add(w); c[w] = (c[w]||0)+1; }); });
+  return Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0, 10); }
+
+/* ---------------- AI ---------------- */
+// Calls Claude with the creator's own Anthropic API key (kept in this browser only).
+const AI_MODEL = 'claude-opus-5';
+let AnthropicSDK = null;
+const aiKey = () => lsGet('istb.apikey') || '';
+function aiErrText(e){ const c = e && e.code;
+  if (c === 'no_key') return t('aiNeedKey'); if (c === 'bad_key') return t('aiErr_key'); if (c === 'refused') return t('aiErr_refused');
+  if (c === 'rate_limited') return t('aiErr_rate'); if (c === 'invalid_json') return t('aiErr_json'); return t('aiErr_generic'); }
+function parseJSONLoose(text){
+  try { return JSON.parse(text); } catch(e){}
+  const m = text.match(/```(?:json)?\s*([\s\S]*?)```/); if (m) { try { return JSON.parse(m[1]); } catch(e){} }
+  const a = text.search(/[\[{]/), b = Math.max(text.lastIndexOf('}'), text.lastIndexOf(']'));
+  if (a >= 0 && b > a) { try { return JSON.parse(text.slice(a, b + 1)); } catch(e){} }
+  throw { code:'invalid_json' };
+}
+async function aiJSON(prompt, busyMsg){
+  const key = aiKey(); if (!key) throw { code:'no_key' };
+  const ctl = new AbortController();
+  S.busy = { msg: busyMsg || t('aiThinking'), ctl }; renderModal();
+  try {
+    if (!AnthropicSDK) { try { AnthropicSDK = (await import('https://esm.sh/@anthropic-ai/sdk')).default; } catch(e){ console.error(e); throw { code:'upstream_error' }; } }
+    const client = new AnthropicSDK({ apiKey: key, dangerouslyAllowBrowser: true });
+    const stream = client.beta.messages.stream({
+      model: AI_MODEL,
+      max_tokens: 32000,
+      thinking: { type: 'adaptive' },
+      betas: ['server-side-fallback-2026-07-01'],
+      fallbacks: 'default',
+      system: 'You produce machine-readable JSON for a survey research application. Reply with one JSON value and no other text.',
+      messages: [{ role: 'user', content: prompt }]
+    }, { signal: ctl.signal });
+    stream.on('text', () => { if (S.busy && S.busy.ctl === ctl && S.busy.msg !== t('aiWriting')) { S.busy.msg = t('aiWriting'); renderModal(); } });
+    const msg = await stream.finalMessage();
+    if (msg.stop_reason === 'refusal') throw { code:'refused' };
+    if (msg.stop_reason === 'max_tokens') throw { code:'invalid_json' };
+    return parseJSONLoose(msg.content.filter(b => b.type === 'text').map(b => b.text).join(''));
+  } catch(e) {
+    if (ctl.signal.aborted || (AnthropicSDK && e instanceof AnthropicSDK.APIUserAbortError)) throw { code:'cancelled' };
+    if (e && typeof e.code === 'string' && !(AnthropicSDK && e instanceof AnthropicSDK.APIError)) throw e;
+    if (AnthropicSDK) {
+      if (e instanceof AnthropicSDK.AuthenticationError || e instanceof AnthropicSDK.PermissionDeniedError) throw { code:'bad_key' };
+      if (e instanceof AnthropicSDK.RateLimitError) throw { code:'rate_limited' };
+      if (e instanceof AnthropicSDK.APIError && e.status === 529) throw { code:'rate_limited' };
+    }
+    console.error(e); throw { code:'upstream_error' };
+  } finally { if (S.busy && S.busy.ctl === ctl) { S.busy = null; renderModal(); } }
+}
+const langName = () => S.lang === 'ar' ? 'Arabic (Modern Standard Arabic)' : 'English';
+async function aiGenerate(){
+  const sv = S.survey;
+  const demoList = demoOn(sv).map(k => T.en['d_'+k]).join(', ') || 'none';
+  const prompt = `You are an expert survey methodologist. Design a professional research questionnaire, written entirely in ${langName()}, from the brief below.
+
+Rules:
+- Organize it into 3–6 sections (axes/dimensions) that follow logically from the topic and goals. Section titles are short noun phrases.
+- Each measurement section has 3–6 questions. Most are 5-point Likert items (Strongly disagree → Strongly agree) written as first-person declarative statements, not questions.
+- Include at least one multiple-choice question (3–6 mutually exclusive, exhaustive options) and at least one yes/no question where they fit naturally.
+- End with a final section of 1–3 open-ended questions.
+- Every item must be clear, neutral and non-leading, measure exactly ONE concept (no double-barreled items joined by "and"/"or"), avoid absolute words (always, never, all), jargon and negations, and stay under 22 words.
+- Do NOT ask demographic questions; these are collected separately: ${demoList}.
+
+Title: ${sv.title || '(untitled)'}
+Description: ${(sv.description || '').slice(0, 800)}
+Brief:
+${(sv.summary || '').slice(0, 6000)}
+
+Reply with only JSON in this shape:
+{"sections":[{"title":"...","items":[{"type":"likert","text":"..."},{"type":"mc","text":"...","options":["...","..."]},{"type":"yesno","text":"..."},{"type":"open","text":"..."}]}]}`;
+  const out = await aiJSON(prompt);
+  const secs = (out && Array.isArray(out.sections) ? out.sections : []).map(s => ({ id: uid('s'), title: String(s.title || t('newSection')).slice(0, 140),
+    items: (Array.isArray(s.items) ? s.items : []).map(it => { const type = ['likert','mc','yesno','open'].includes(it.type) ? it.type : 'likert';
+      const opts = type === 'mc' ? (Array.isArray(it.options) ? it.options.map(String).filter(Boolean).slice(0, 10) : []) : null;
+      return { id: uid('q'), type: (type === 'mc' && opts.length < 2) ? 'likert' : type, text: String(it.text || '').slice(0, 400), opts: (type === 'mc' && opts.length >= 2) ? opts : null, req: type !== 'open' }; }).filter(q => q.text) })).filter(s => s.items.length);
+  if (!secs.length) throw { code:'invalid_json' };
+  return secs;
+}
+function templateDraft(){
+  const sv = S.survey; const L = S.lang === 'ar';
+  let pts = (sv.summary || '').split(/\n|•|;|·|- /).map(x => x.replace(/^[\s\-*\d.)]+/, '').trim()).filter(x => x.length > 3);
+  pts = pts.filter(p => !/^(topic|goal|target|use|population|الموضوع|الأهداف|الفئة|الاستخدام)/i.test(p)).slice(0, 4);
+  const topic = sv.title || (L ? 'الخدمة' : 'the service');
+  const dims = pts.length >= 2 ? pts.map(p => p.replace(/[:：].*$/, '').slice(0, 60)) : (L ? ['الوضوح وسهولة الوصول','الجودة والفاعلية','الرضا العام'] : ['Clarity & access','Quality & effectiveness','Overall satisfaction']);
+  const tmpl = L ? ['أرى أن {d} يلبّي احتياجاتي.','المعلومات المتعلقة بـ{d} واضحة.','تحسّن {d} خلال العام الماضي.','أنا راضٍ عن {d}.'] : ['{d} meets my needs.','Information about {d} is clear.','{d} has improved over the past year.','I am satisfied with {d}.'];
+  const secs = dims.map(d => ({ id: uid('s'), title: d, items: tmpl.map(x => ({ id: uid('q'), type:'likert', text: x.replace('{d}', d.toLowerCase ? (L ? d : d.toLowerCase()) : d), opts:null, req:true })) }));
+  secs.push({ id: uid('s'), title: L ? 'ملاحظات عامة' : 'General feedback', items: [
+    { id: uid('q'), type:'yesno', text: L ? `هل توصي بـ${topic} للآخرين؟` : `Would you recommend ${topic} to others?`, opts:null, req:true },
+    { id: uid('q'), type:'open', text: L ? 'ما أكبر تحدٍّ تواجهه حالياً؟' : 'What is the biggest challenge you face today?', opts:null, req:false },
+    { id: uid('q'), type:'open', text: L ? 'ما التحسين الأهم الذي تقترحه؟' : 'What one improvement would you suggest?', opts:null, req:false } ] });
+  return secs;
+}
+async function aiThemes(A, it){
+  const list = it.answers.slice(0, 250).map((a,i) => `${i+1}. ${a.slice(0, 280)}`).join('\n');
+  const prompt = `You analyze open-ended survey answers. Question: "${it.q.text}"
+Group the ${it.answers.length} answers below into 3–7 key themes. Write theme names and descriptions in ${langName()}. Count how many answers fit each theme (an answer may fit one theme). Pick one short representative quote per theme copied from the answers.
+
+Answers:
+${list}
+
+Reply with only JSON: {"themes":[{"theme":"short name","count":12,"description":"one sentence","quote":"..."}]}`;
+  const out = await aiJSON(prompt);
+  const themes = (out && Array.isArray(out.themes) ? out.themes : []).map(x => ({ theme: String(x.theme||'').slice(0,120), count: Math.max(0, Math.round(Number(x.count)||0)), description: String(x.description||'').slice(0,400), quote: String(x.quote||'').slice(0,300) })).filter(x => x.theme);
+  if (!themes.length) throw { code:'invalid_json' };
+  return { themes, n: it.answers.length, lang: S.lang, at: Date.now() };
+}
+function compactStats(A){
+  const secs = A.sections.map(s => ({ section: s.sec.title, mean: +fmt(s.mean), sd: +fmt(s.sd), level: T.en['lv_'+s.level], alpha: s.alpha == null ? null : +fmt(s.alpha) }));
+  const items = Object.values(A.items).filter(i => i.q.type === 'likert' && i.n).sort((a,b)=>a.mean-b.mean);
+  const lowest = items.slice(0, 5).map(i => ({ item: i.q.text, mean: +fmt(i.mean), disagreePct: +fmt(pct(i.counts[0]+i.counts[1], i.n),1) }));
+  const highest = items.slice(-4).reverse().map(i => ({ item: i.q.text, mean: +fmt(i.mean) }));
+  const demo = {}; Object.keys(A.demo).forEach(f => { const d = A.demo[f]; demo[T.en['d_'+f]] = d.opts.map((o,i) => `${o}: ${fmt(pct(d.counts[i], d.n),1)}%`).join('; '); });
+  const diffs = sigDiffs(A).slice(0, 6).map(d => ({ section: d.s.sec.title, by: T.en['d_'+d.f], F: +fmt(d.test.F), p: +d.test.p.toFixed(4), highest: `${d.hi.label} (${fmt(d.hi.mean)})`, lowest: `${d.lo.label} (${fmt(d.lo.mean)})` }));
+  const other = Object.values(A.items).filter(i => (i.q.type === 'mc' || i.q.type === 'yesno') && i.n).map(i => ({ question: i.q.text, results: i.opts.map((o,j) => `${o}: ${fmt(pct(i.counts[j], i.n),1)}%`).join('; ') }));
+  const themes = Object.values(A.items).filter(i => i.q.type === 'open').map(i => { const th = themesFor(A, i.q.id); return { question: i.q.text, themes: th ? th.themes.map(x => `${x.theme} (${x.count})`) : keywords(i.answers).slice(0,6).map(k => k[0]) }; });
+  return { title: S.survey.title, topic: (S.survey.summary||'').slice(0, 1200), dataIsDemo: A.src === 'demo', completeResponses: A.n, started: A.started, completionRatePct: A.completion,
+    overallMean: +fmt(A.overall.mean), scale: 'Likert 1–5; levels: 1–1.80 very low, 1.81–2.60 low, 2.61–3.40 moderate, 3.41–4.20 high, 4.21–5 very high', sections: secs, lowestItems: lowest, highestItems: highest, demographics: demo, significantGroupDifferences: diffs, otherQuestions: other, openEndedThemes: themes };
+}
+async function aiInsights(A){
+  const prompt = `You are a senior research analyst. Using ONLY the survey statistics below, write the analysis section of a professional report in ${langName()}.
+Be specific and data-supported: cite means, percentages, F and p values exactly as given; never invent numbers. Recommendations must be practical, prioritized and each linked to one challenge.${A.src === 'demo' ? ' Note in the limitations that the data is generated demo data.' : ''}
+
+Statistics (JSON):
+${JSON.stringify(compactStats(A)).slice(0, 30000)}
+
+Reply with only JSON:
+{"executiveSummary":"one paragraph, 80–130 words","findings":["4–7 data-supported findings"],"challenges":[{"title":"short","evidence":"numbers"}],"recommendations":[{"action":"specific action","challenge":"title of the challenge it addresses","priority":"high|medium|low","timeframe":"e.g. 0–3 months"}],"limitations":["3–5 items"],"futureResearch":["2–4 items"]}`;
+  const o = await aiJSON(prompt);
+  const arr = x => Array.isArray(x) ? x : [];
+  const res = { summary: String(o.executiveSummary || ''), findings: arr(o.findings).map(String), challenges: arr(o.challenges).map(c => ({ title: String(c.title||''), evidence: String(c.evidence||'') })).filter(c => c.title),
+    recs: arr(o.recommendations).map(r => ({ action: String(r.action||''), challenge: String(r.challenge||''), priority: ['high','medium','low'].includes(String(r.priority).toLowerCase()) ? String(r.priority).toLowerCase() : 'medium', timeframe: String(r.timeframe||'') })).filter(r => r.action),
+    limits: arr(o.limitations).map(String), future: arr(o.futureResearch).map(String), source: 'ai', at: Date.now(), n: A.n, lang: S.lang };
+  if (!res.findings.length || !res.recs.length) throw { code:'invalid_json' };
+  return res;
+}
+
+/* ---------------- rendering helpers ---------------- */
+function toast(msg, ms){ const h = document.getElementById('toast-host'); h.innerHTML = `<div class="toast" role="status">${esc(msg)}</div>`; clearTimeout(toast._t); toast._t = setTimeout(() => h.innerHTML = '', ms || 3800); }
+function paintSave(){ const el = document.getElementById('save-state'); if (!el) return;
+  el.innerHTML = S.save === 'saving' ? `<span class="spin" style="width:12px;height:12px"></span>${t('saving')}` : S.save === 'saved' ? `${I.check.replace('<svg','<svg width="14" height="14"')}${t('saved')}` : S.save === 'failed' ? `<span style="color:var(--danger)">${t('saveFailed')}</span>` : ''; }
+function confirmBox(msg, okLabel){ return new Promise(res => { S.modal = { kind:'confirm', msg, ok: okLabel || t('confirm'), res }; renderModal(); }); }
+function renderModal(){
+  const host = document.getElementById('modal-host');
+  if (S.busy) { host.innerHTML = `<div class="modal-back"><div class="modal" role="dialog" aria-live="polite"><div class="row" style="justify-content:flex-start;gap:12px"><span class="spin" style="color:var(--primary)"></span><b>${esc(S.busy.msg)}</b></div>${S.busy.ctl ? `<div class="row"><button class="btn" data-act="busy-stop">${t('stop')}</button></div>` : ''}</div></div>`; return; }
+  const m = S.modal; if (!m) { host.innerHTML = ''; return; }
+  if (m.kind === 'confirm') host.innerHTML = `<div class="modal-back"><div class="modal" role="dialog" aria-modal="true"><p style="font-size:15.5px">${esc(m.msg)}</p><div class="row"><button class="btn ghost" data-act="modal-no">${t('cancel')}</button><button class="btn primary" data-act="modal-yes">${esc(m.ok)}</button></div></div></div>`;
+  else if (m.kind === 'settings') host.innerHTML = `<div class="modal-back"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="set-h"><h3 id="set-h">${t('aiSettings')}</h3>
+    <div class="field"><label for="api-key">${t('aiKeyLabel')}</label><input class="input" id="api-key" type="password" autocomplete="off" spellcheck="false" dir="ltr" placeholder="sk-ant-..." value="${esc(aiKey())}"><span class="hint">${t('aiKeyHint')}</span></div>
+    <div class="row">${aiKey() ? `<button class="btn ghost danger" data-act="key-remove">${t('remove')}</button>` : ''}<span class="spacer"></span><button class="btn ghost" data-act="modal-close">${t('cancel')}</button><button class="btn primary" data-act="key-save">${t('save')}</button></div></div></div>`;
+  else if (m.kind === 'preview') host.innerHTML = `<div class="modal-back"><div class="modal wide" role="dialog" aria-modal="true"><div class="row" style="justify-content:space-between"><h3>${t('pdfPreview')}</h3><button class="btn" data-act="modal-close">${t('close')}</button></div><div class="banner teal">${I.info}<span>${esc(m.msg)}</span></div><div class="preview-pages">${m.pages.map(src => `<img alt="" src="${src}">`).join('')}</div></div></div>`;
+}
+function lvChip(l){ if (!l) return '<span class="muted">—</span>'; return `<span class="lv"><i style="background:var(--lv-${l})"></i>${t('lv_'+l)}</span>`; }
+const typeLabel = ty => t('ty_' + ty);
+function lint(q){ const out = []; const s = q.text || ''; const L = S.lang === 'ar' || /[؀-ۿ]/.test(s);
+  if (!s.trim()) return [t('lintEmpty')];
+  if (q.type !== 'open' && (L ? /\s(أو|وكذلك|وأيضاً|وأيضا)\s/.test(s) : /\b(and|or)\b/i.test(s))) out.push(t('lintDouble'));
+  if (L ? /(ألا ترى|أليس|بالتأكيد|من الواضح|لا شك)/.test(s) : /\b(don't you|wouldn't you|isn't it|obviously|clearly|surely|everyone knows|of course)\b/i.test(s)) out.push(t('lintLeading'));
+  if (L ? /(دائماً|دائما|أبداً|أبدا|إطلاقاً)/.test(s) : /\b(always|never|all|every|none)\b/i.test(s)) out.push(t('lintAbsolute'));
+  if (s.trim().split(/\s+/).length > 25) out.push(t('lintLong'));
+  return out; }
+function countQ(sv){ return (sv.sections || []).reduce((n,s)=>n+s.items.length,0); }
+
+/* ---------------- header ---------------- */
+function renderTop(){
+  const r = S.route; const editing = r.name === 'edit' && S.survey && (S.mode === 'local' || S.user);
+  const tabs = editing ? [['setup','tSetup'],['questions','tQuestions'],['share','tShare'],['take','tTake'],['results','tResults']] : [];
+  const u = S.user && !S.user.local ? S.user : null;
+  const creatorSide = r.name !== 'respond' && (S.mode === 'local' || u);
+  document.getElementById('top').innerHTML = `
+    <a class="brand" href="#/">${I.logo}<div>${t('appName')}<small>${t('appSub')}</small></div></a>
+    <nav class="tabs" aria-label="Sections">${tabs.map(([k,l]) => `<button class="tab" data-act="tab" data-tab="${k}" ${S.tab===k?'aria-current="page"':''}>${t(l)}</button>`).join('')}</nav>
+    <div class="top-actions">${editing ? `<span class="save-state" id="save-state"></span>` : ''}
+      ${creatorSide ? `<button class="icon-btn" data-act="settings" title="${t('aiSettings')}" aria-label="${t('aiSettings')}">${I.spark}</button>` : ''}
+      <button class="btn sm lang-btn" data-act="lang" lang="${S.lang==='en'?'ar':'en'}">${t('langBtn')}</button>
+      ${u && r.name !== 'respond' ? `<div class="user-chip">${u.photo ? `<img class="avatar" src="${esc(u.photo)}" alt="" referrerpolicy="no-referrer">` : `<span class="avatar">${esc((u.name || u.email || '?').slice(0,1).toUpperCase())}</span>`}<button class="btn ghost sm" data-act="sign-out">${t('signOut')}</button></div>` : ''}
+    </div>`;
+  paintSave();
+}
+function crumb(){ return `<div class="crumb"><a href="#/">${S.lang === 'ar' ? '→' : '←'} ${t('backToList')}</a><span>/</span><span>${esc(S.survey.title || t('untitled'))}</span></div>`; }
+const localBanner = () => S.mode === 'local' ? `<div class="banner">${I.info}<span>${t('localMode')}</span></div>` : '';
+
+/* ---------------- landing & my questionnaires ---------------- */
+function viewHero(){
+  const sv = sampleSurvey(S.lang); const means = [3.91, 3.37, 3.16, 2.81];
+  const feats = [['feat1t','feat1b',I.spark,'linear-gradient(135deg,#2a8574,#3fb89f)'],['feat2t','feat2b',I.send,'linear-gradient(135deg,#3b82f6,#60a5fa)'],['feat3t','feat3b',I.check,'linear-gradient(135deg,#e38c35,#f5a855)'],['feat4t','feat4b',I.file,'linear-gradient(135deg,#8b5cf6,#a78bfa)']];
+  return `<section class="hero"><div><div class="eyebrow">${t('appName')} · ${t('appSub')}</div><h1>${t('heroTitle')}</h1><p>${t('heroLead')}</p>
+      <div class="row"><button class="btn primary" data-act="sign-in">${t('signIn')}</button></div></div>
+    <div class="hero-art" aria-hidden="true"><b>${esc(sv.title)}</b>
+      <div class="sbars">${sv.sections.slice(0,4).map((s,i) => `<div class="sb" style="grid-template-columns:minmax(90px,38%) 1fr 60px"><span class="l small">${esc(s.title)}</span><span class="t"><span style="width:${means[i]/5*100}%;background:var(--lv-${level(means[i])})"></span></span><span class="v small">${means[i].toFixed(2)}</span></div>`).join('')}</div>
+      ${stackbar([2,9,27,41,21], 100)}${likertLegend()}</div></section>
+    <div class="feat">${feats.map(([a,b,ic,bg]) => `<div class="card"><div class="ic" style="background:${bg}">${ic}</div><h3>${t(a)}</h3><p>${t(b)}</p></div>`).join('')}</div>`;
+}
+function viewHome(){
+  if (S.mode === 'cloud' && !S.user) return viewHero();
+  const list = (S.mine || []).slice().sort((a,b) => (b.updatedAt||0) - (a.updatedAt||0));
+  const card = s => { const pub = s.status === 'published'; const n = S.counts[s.id];
+    return `<div class="card s-card"><div class="row"><span class="pill ${pub?'ok':'orange'}"><span class="dot"></span>${pub?t('published'):t('draft')}</span></div>
+      <h3>${esc(s.title || t('untitled'))}</h3>
+      <div class="meta"><span>${t('nQuestions',{n:countQ(s)})}</span><span>${t('responsesN',{n: n == null ? '…' : n})}</span><span>${t('updated',{d:fmtDate(s.updatedAt)})}</span></div>
+      <div class="row"><a class="btn primary sm" href="#/edit/${esc(s.id)}/setup">${t('open')}</a>${pub ? `<button class="btn sm" data-act="copy-link" data-id="${esc(s.id)}">${t('copyLink')}</button>` : ''}<span class="spacer"></span>
+        <button class="btn ghost icon danger" data-act="del-survey" data-id="${esc(s.id)}" title="${t('del')}" aria-label="${t('del')}">${I.x}</button></div></div>`; };
+  return `<div class="page-head"><div><div class="eyebrow">${t('appSub')}</div><h1>${t('tMy')}</h1><p>${t('myLead')}</p></div>
+    <div class="row"><button class="btn" data-act="new-example">${t('fromExample')}</button><button class="btn primary" data-act="new-blank">${I.plus}${t('newQ')}</button></div></div>
+    <div class="stack-v">${localBanner()}${S.loadErr ? `<div class="banner bad">${I.info}<span>${esc(S.loadErr)}</span></div>` : ''}
+    ${S.mine === null ? `<div class="loading" style="min-height:30vh"><span class="spin"></span></div>`
+      : !list.length ? `<div class="card empty"><h2>${t('noSurveys')}</h2><p>${t('noSurveysBody')}</p><div class="row" style="justify-content:center"><button class="btn" data-act="new-example">${t('fromExample')}</button><button class="btn primary" data-act="new-blank">${I.plus}${t('newQ')}</button></div></div>`
+      : `<div class="s-grid">${list.map(card).join('')}</div>`}</div>`;
+}
+
+/* ---------------- share ---------------- */
+function viewShare(){
+  const sv = S.survey; const pub = sv.status === 'published'; const url = respondUrl(S.route.id);
+  const n = S.responses.filter(r => r && r.status === 'complete').length; const msg = t('shareMsg', { t: sv.title || '' });
+  return `<div class="page-head"><div><div class="eyebrow">${t('shareEyebrow')}</div><h1>${t('shareH')}</h1><p>${t('shareLead')}</p></div>
+    <div class="row"><span class="pill ${pub?'ok':'orange'}"><span class="dot"></span>${pub?t('published'):t('draft')}</span><span class="muted small">${t('responsesN',{n})}</span></div></div>
+  <div class="stack-v">${localBanner()}
+    <div class="card"><div class="share-grid"><div class="stack-v" style="gap:16px">
+      <div class="row">${pub ? `<button class="btn" data-act="unpublish">${t('unpublish')}</button>` : `<button class="btn primary" data-act="publish" ${countQ(sv) ? '' : 'disabled'}>${I.send}${t('publish')}</button>`}</div>
+      ${pub ? '' : `<div class="banner">${I.info}<span>${t('publishFirst')}</span></div>`}
+      <div class="field"><label for="share-url">${t('respLink')}</label><div class="link-box"><input class="input" id="share-url" readonly value="${esc(url)}"><button class="btn" data-act="copy-url">${t('copyLink')}</button></div><span class="hint">${t('notPublished')}</span></div>
+      <div class="row"><a class="btn sm" href="${esc(url)}" target="_blank" rel="noopener">${t('openLink')}</a>
+        <a class="btn sm" href="https://wa.me/?text=${encodeURIComponent(msg + ' ' + url)}" target="_blank" rel="noopener">${t('shareWhatsApp')}</a>
+        <a class="btn sm" href="mailto:?subject=${encodeURIComponent(sv.title || '')}&amp;body=${encodeURIComponent(msg + '\n\n' + url)}">${t('shareEmail')}</a></div>
+    </div>
+    <div class="qr"><b style="color:#0f172a">${t('qrTitle')}</b><div id="qr-box" role="img" aria-label="${t('qrTitle')}"></div><button class="btn sm" data-act="qr-dl">${t('downloadQr')}</button></div></div></div>
+  </div>`;
+}
+function drawQR(){ const el = document.getElementById('qr-box'); if (!el || !window.QRCode) return; el.innerHTML = '';
+  try { new QRCode(el, { text: respondUrl(S.route.id), width: 400, height: 400, colorDark:'#0f172a', colorLight:'#ffffff', correctLevel: QRCode.CorrectLevel.M }); } catch(e){ console.error(e); } }
+
+/* ---------------- setup view ---------------- */
+function viewSetup(){
+  const sv = S.survey; const hasResp = S.responses.length > 0;
+  const demoCards = DEMO_KEYS.map(k => { const d = sv.demographics[k] || {}; const on = !!d.on;
+    let body = '';
+    if (on && k === 'name') body = `<label class="switch small"><input type="checkbox" id="anon" data-act="name-anon" ${d.anon !== false ? 'checked':''}>${t('anonymous')}</label>`;
+    else if (on) body = `<textarea class="input" id="opts-${k}" data-demo-opts="${k}" aria-label="${esc(t('d_'+k))}">${esc(demoOpts(k).join('\n'))}</textarea><div class="row"><button class="btn ghost sm" data-act="demo-reset" data-key="${k}">${t('resetOpts')}</button></div>`;
+    return `<div class="demo-card ${on?'on':''}"><label class="switch"><input type="checkbox" id="demo-${k}" data-act="demo-toggle" data-key="${k}" ${on?'checked':''}>${t('d_'+k)}</label>${body}</div>`; }).join('');
+  return `
+  <div class="page-head"><div><div class="eyebrow">${t('setupEyebrow')}</div><h1>${t('setupTitle')}</h1><p>${t('setupLead')}</p></div></div>
+  <div class="stack-v">
+    ${S.isSample ? `<div class="banner teal">${I.info}<span>${t('sampleNote')}</span></div>` : ''}
+    ${S.readOnly ? `<div class="banner bad">${I.info}<span>${t('readOnly')}</span></div>` : ''}
+    <section class="card"><div class="card-head"><h2>${t('details')}</h2></div>
+      <div class="stack-v" style="gap:14px">
+        <div class="field"><label for="f-title">${t('fTitle')}</label><input class="input" id="f-title" data-bind="title" value="${esc(sv.title)}"></div>
+        <div class="field"><label for="f-desc">${t('fDesc')}</label><textarea class="input" id="f-desc" data-bind="description" rows="2">${esc(sv.description)}</textarea><span class="hint">${t('fDescHint')}</span></div>
+        <div class="field"><label for="f-sum">${t('fSummary')}</label><textarea class="input" id="f-sum" data-bind="summary" rows="7">${esc(sv.summary)}</textarea><span class="hint">${t('fSummaryHint')}</span></div>
+      </div></section>
+    <section class="card"><div class="card-head"><div><h2>${t('demoTitle')}</h2><p>${t('demoLead')}</p></div></div>
+      ${hasResp ? `<div class="banner" style="margin-bottom:14px">${I.info}<span>${t('optsEditedWarn')}</span></div>` : ''}
+      <div class="grid3">${demoCards}</div></section>
+    <div class="card"><div class="row">
+      <button class="btn primary" data-act="gen-ai" ${S.readOnly?'disabled':''}>${I.spark}${t('genAI')}</button>
+      <button class="btn" data-act="gen-tpl" ${S.readOnly?'disabled':''}>${I.file}${t('genTpl')}</button>
+      ${S.ai ? '' : `<span class="muted small">${t('aiOff')}</span>`}
+    </div></div>
+  </div>`;
+}
+
+/* ---------------- questions view ---------------- */
+function viewQuestions(){
+  const sv = S.survey; let qn = 0; const pub = sv.status === 'published';
+  const secs = sv.sections.map((s, si) => `
+    <section class="card sec-card">
+      <div class="sec-head"><span class="sec-no">${t('section')} ${si+1}</span>
+        <input class="input" id="st-${s.id}" data-sec-title="${si}" value="${esc(s.title)}" aria-label="${t('sectionTitle')}">
+        <div class="q-tools">
+          <button class="btn ghost icon" title="${t('moveUp')}" aria-label="${t('moveUp')}" data-act="sec-up" data-s="${si}" ${si===0?'disabled':''}>${I.up}</button>
+          <button class="btn ghost icon" title="${t('moveDown')}" aria-label="${t('moveDown')}" data-act="sec-down" data-s="${si}" ${si===sv.sections.length-1?'disabled':''}>${I.down}</button>
+          <button class="btn ghost icon danger" title="${t('del')}" aria-label="${t('del')}" data-act="sec-del" data-s="${si}">${I.x}</button>
+        </div></div>
+      <div class="q-list">${s.items.map((q, qi) => { qn++; const w = lint(q);
+        return `<div class="q-row">
+          <div class="q-num">Q${qn}</div>
+          <div class="q-main">
+            <div class="top-line"><select class="input" id="qt-${q.id}" data-q-type="${si}:${qi}" aria-label="${t('rpType')}">${['likert','mc','yesno','open'].map(ty => `<option value="${ty}" ${q.type===ty?'selected':''}>${typeLabel(ty)}</option>`).join('')}</select>
+              <label class="switch small"><input type="checkbox" id="qr-${q.id}" data-q-req="${si}:${qi}" ${q.req?'checked':''}>${t('required')}</label>
+              <span class="lint" id="lint-${q.id}">${w.map(x => `<span class="pill warn">${esc(x)}</span>`).join('')}</span></div>
+            <textarea class="input" id="qx-${q.id}" data-q-text="${si}:${qi}" rows="2" aria-label="${t('rpQ')}">${esc(q.text)}</textarea>
+            ${q.type === 'mc' ? `<div class="field"><span class="hint">${t('optionsOnePerLine')}</span><textarea class="input" id="qo-${q.id}" data-q-opts="${si}:${qi}" rows="3">${esc((q.opts||[]).join('\n'))}</textarea></div>` : ''}
+          </div>
+          <div class="q-tools">
+            <button class="btn ghost icon" title="${t('moveUp')}" aria-label="${t('moveUp')}" data-act="q-up" data-s="${si}" data-q="${qi}" ${qi===0?'disabled':''}>${I.up}</button>
+            <button class="btn ghost icon" title="${t('moveDown')}" aria-label="${t('moveDown')}" data-act="q-down" data-s="${si}" data-q="${qi}" ${qi===s.items.length-1?'disabled':''}>${I.down}</button>
+            <button class="btn ghost icon danger" title="${t('del')}" aria-label="${t('del')}" data-act="q-del" data-s="${si}" data-q="${qi}">${I.x}</button>
+          </div></div>`; }).join('')}
+        <div class="q-add"><button class="btn ghost sm" data-act="q-add" data-s="${si}">${I.plus}${t('addQuestion')}</button></div>
+      </div></section>`).join('');
+  return `
+  <div class="page-head"><div><div class="eyebrow">${t('qEyebrow')}</div><h1>${t('qTitle')}</h1><p>${t('qLead')}</p></div>
+    <div class="row"><span class="pill ${pub?'ok':'orange'}"><span class="dot"></span>${pub?t('published'):t('draft')}</span>
+      <span class="muted small">${t('nSections',{n:sv.sections.length})} · ${t('nQuestions',{n:countQ(sv)})}</span></div></div>
+  <div class="stack-v">
+    ${S.readOnly ? `<div class="banner bad">${I.info}<span>${t('readOnly')}</span></div>` : ''}
+    <div class="card"><div class="row">
+      ${pub ? `<button class="btn" data-act="unpublish">${t('unpublish')}</button>` : `<button class="btn primary" data-act="publish" ${countQ(sv)?'':'disabled'}>${I.send}${t('publish')}</button>`}
+      <button class="btn" data-act="gen-ai">${I.spark}${t('regen')}</button>
+      <button class="btn" data-act="sec-add">${I.plus}${t('addSection')}</button>
+      <span class="spacer"></span>
+    </div>
+    ${pub ? `<div class="banner teal" style="margin-top:14px">${I.info}<span>${t('published')} · <a href="#/edit/${esc(S.route.id)}/share">${t('respLink')}</a></span></div>` : ''}</div>
+    ${secs}
+  </div>`;
+}
+
+/* ---------------- respondent view ---------------- */
+function takeSteps(){ const st = []; if (demoOn().length) st.push({ kind:'demo' }); S.survey.sections.forEach((s, i) => { if (s.items.length) st.push({ kind:'sec', i }); }); return st; }
+function newTake(){ let draft = null; try { draft = JSON.parse(lsGet('istb.draft.' + S.route.id) || 'null'); } catch(e){}
+  if (draft && draft.sv !== (S.survey.updatedAt||0)) draft = null;
+  return { step: draft ? draft.step : -1, demo: draft ? draft.demo : {}, ans: draft ? draft.ans : {}, errors:{}, done:false, submitting:false, already:null, startedAt: draft ? draft.startedAt : null, err:null }; }
+function saveDraft(){ const tk = S.take; lsSet('istb.draft.' + S.route.id, JSON.stringify({ sv: S.survey.updatedAt||0, step: tk.step, demo: tk.demo, ans: tk.ans, startedAt: tk.startedAt })); }
+function viewTake(){
+  const sv = S.survey; const tk = S.take || (S.take = newTake());
+  const preview = S.route.name === 'edit';
+  if (!preview && sv.status !== 'published') return `<div class="survey"><div class="card empty"><h2>${t('closedTitle')}</h2><p>${t('closedBody')}</p></div></div>`;
+  const pre = preview ? `<div class="banner teal">${I.info}<span>${t('previewBanner')}</span></div>` : '';
+  if (tk.done) return `<div class="survey">${pre}<div class="card thanks"><div class="check">${I.check}</div><h1 style="font-size:26px;margin-bottom:6px">${t('thanksTitle')}</h1><p class="muted">${t('thanksBody')}</p>
+    ${preview ? `<div class="row" style="justify-content:center;margin-top:20px"><button class="btn primary" data-act="tab" data-tab="results">${t('viewResults')}</button><button class="btn" data-act="take-again">${t('another')}</button></div>` : ''}</div></div>`;
+  const steps = takeSteps(); const nq = countQ(sv);
+  const writeBlock = null;
+  if (tk.step < 0) return `<div class="survey">${pre}
+    <div class="card survey-hero"><div class="eyebrow">${t('appName')}</div><h1>${esc(sv.title)}</h1><p class="muted" style="white-space:pre-line">${esc(sv.description)}</p>
+      <div class="row" style="margin-top:14px"><span class="pill teal">${t('aboutQ', { n: nq + demoOn().length, m: Math.max(2, Math.round((nq + demoOn().length) * 0.3)) })}</span></div>
+      <p class="small muted" style="margin-top:10px">${t('anonNote')}</p>
+      ${tk.already ? `<div class="banner" style="margin-top:14px">${I.info}<span>${t('already')}</span></div>` : ''}
+      ${writeBlock ? `<div class="banner bad" style="margin-top:14px">${I.info}<span>${t(writeBlock)}</span></div>` : ''}
+      <div class="row" style="margin-top:18px"><button class="btn primary" data-act="take-start" ${!steps.length || writeBlock ? 'disabled' : ''}>${t('start')}</button></div></div></div>`;
+  const cur = steps[tk.step]; const p = Math.round((tk.step) / steps.length * 100);
+  let body = '';
+  if (cur.kind === 'demo') {
+    body = `<div class="card"><h2 style="font-size:20px">${t('aboutYou')}</h2></div>` + demoOn().map(k => {
+      if (k === 'name') { const d = sv.demographics.name; const req = d.anon === false; const err = tk.errors['d_name'];
+        return `<fieldset class="q ${err?'has-err':''}" id="fd-name"><legend>${t('d_name')}${req ? ' <span class="req">*</span>' : ''}</legend><input class="input" id="in-name" data-demo-name value="${esc(tk.demo.name || '')}" placeholder="${t('namePh')}" autocomplete="name">${req ? '' : `<span class="small muted">${t('nameOptional')}</span>`}<div class="err-msg">${t('needAnswer')}</div></fieldset>`; }
+      const err = tk.errors['d_'+k];
+      return `<fieldset class="q ${err?'has-err':''}" id="fd-${k}"><legend>${t('d_'+k)} <span class="req">*</span></legend><div class="opts">${demoOpts(k).map((o, i) => `<label class="opt"><input type="radio" name="d-${k}" value="${i}" data-demo="${k}" ${tk.demo[k]===i?'checked':''}>${esc(o)}</label>`).join('')}</div><div class="err-msg">${t('needAnswer')}</div></fieldset>`; }).join('');
+  } else {
+    const sec = sv.sections[cur.i]; let qn = 0; sv.sections.slice(0, cur.i).forEach(s => qn += s.items.length);
+    body = `<div class="card"><div class="eyebrow">${t('section')} ${cur.i+1}</div><h2 style="font-size:20px">${esc(sec.title)}</h2></div>` + sec.items.map(q => { qn++; const err = tk.errors[q.id]; const v = tk.ans[q.id];
+      let ctl = '';
+      if (q.type === 'likert') ctl = `<div class="likert">${[1,2,3,4,5].map(n => `<label class="lk"><input type="radio" name="a-${q.id}" value="${n}" data-ans="${q.id}" ${v===n?'checked':''}><span class="num">${n}</span><span>${t('lk'+n)}</span></label>`).join('')}</div>`;
+      else if (q.type === 'mc') ctl = `<div class="opts">${(q.opts||[]).map((o,i) => `<label class="opt"><input type="radio" name="a-${q.id}" value="${i}" data-ans="${q.id}" ${v===i?'checked':''}>${esc(o)}</label>`).join('')}</div>`;
+      else if (q.type === 'yesno') ctl = `<div class="opts">${[[1,'yes'],[0,'no']].map(([val,l]) => `<label class="opt"><input type="radio" name="a-${q.id}" value="${val}" data-ans="${q.id}" ${v===val?'checked':''}>${t(l)}</label>`).join('')}</div>`;
+      else ctl = `<textarea class="input" id="ta-${q.id}" data-ans-text="${q.id}" rows="3" placeholder="${t('openPh')}" maxlength="2000">${esc(v || '')}</textarea>`;
+      return `<fieldset class="q ${err?'has-err':''}" id="fq-${q.id}"><legend><span class="qn">Q${qn}</span><span>${esc(q.text)}${q.req ? ' <span class="req">*</span>' : ` <span class="small muted">(${t('optional')})</span>`}</span></legend>${ctl}<div class="err-msg">${t('needAnswer')}</div></fieldset>`; }).join('');
+  }
+  const last = tk.step === steps.length - 1;
+  return `<div class="survey">${pre}
+    <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${p}"><div class="row small" style="justify-content:space-between"><b>${esc(sv.title)}</b><span class="muted">${t('step',{i:tk.step+1,n:steps.length})} · ${t('pctDone',{p})}</span></div><div class="bar"><span style="width:${p}%"></span></div></div>
+    ${tk.err ? `<div class="banner bad">${I.info}<span>${esc(tk.err)}</span></div>` : ''}
+    ${body}
+    <div class="nav-row"><button class="btn" data-act="take-back">${t('back')}</button>
+      ${last ? `<button class="btn primary" data-act="take-submit" ${tk.submitting?'disabled':''}>${tk.submitting ? `<span class="spin"></span>${t('submitting')}` : `${I.send}${t('submit')}`}</button>` : `<button class="btn primary" data-act="take-next">${t('next')}</button>`}</div>
+  </div>`;
+}
+function validateStep(){ const tk = S.take; const cur = takeSteps()[tk.step]; tk.errors = {}; const sv = S.survey;
+  if (cur.kind === 'demo') demoOn().forEach(k => { if (k === 'name') { if (sv.demographics.name.anon === false && !(tk.demo.name||'').trim()) tk.errors.d_name = 1; } else if (!Number.isInteger(tk.demo[k])) tk.errors['d_'+k] = 1; });
+  else sv.sections[cur.i].items.forEach(q => { if (!q.req) return; const v = tk.ans[q.id]; if (q.type === 'open' ? !(v||'').trim() : !Number.isInteger(v)) tk.errors[q.id] = 1; });
+  return !Object.keys(tk.errors).length; }
+async function startTake(){ const tk = S.take; tk.step = 0; tk.startedAt = tk.startedAt || Date.now(); saveDraft();
+  if (!tk.already) { const rec = { id: S.mode === 'local' ? (tk.localId = tk.localId || uid('r')) : null, status:'started', startedAt: tk.startedAt, submittedAt:null, demo:{}, answers:{}, svAt: S.survey.updatedAt||0 };
+    Store.writeResponse(rec).catch(e => console.error(e)); }
+  render(); window.scrollTo({ top: 0 }); }
+async function submitTake(){ const tk = S.take; if (!validateStep()) { render(); focusFirstError(); return; }
+  tk.submitting = true; tk.err = null; render();
+  const demo = {}; demoOn().forEach(k => { if (k === 'name') { const n = (tk.demo.name||'').trim(); if (n) demo.name = n.slice(0, 120); } else demo[k] = tk.demo[k]; });
+  const answers = {}; S.survey.sections.forEach(s => s.items.forEach(q => { const v = tk.ans[q.id]; if (v === undefined || v === '') return; answers[q.id] = typeof v === 'string' ? v.slice(0, 2000) : v; }));
+  const rec = { id: S.mode === 'local' ? (tk.localId || uid('r')) : null, status:'complete', startedAt: tk.startedAt || Date.now(), submittedAt: Date.now(), demo, answers, svAt: S.survey.updatedAt||0 };
+  try { await Store.writeResponse(rec); tk.done = true; lsDel('istb.draft.' + S.route.id); }
+  catch(e){ console.error(e); tk.err = t('submitFailed'); }
+  tk.submitting = false; render(); window.scrollTo({ top: 0 }); }
+function focusFirstError(){ const el = document.querySelector('.has-err'); if (el) { el.scrollIntoView({ behavior:'smooth', block:'center' }); const i = el.querySelector('input,textarea'); if (i) setTimeout(() => i.focus({ preventScroll:true }), 300); } toast(t('fixErrors')); }
+
+/* ---------------- charts ---------------- */
+const CAT = ['--c1','--c2','--c3','--c4','--c5','--c6','--c7','--c8'];
+function cssVar(n){ return getComputedStyle(document.documentElement).getPropertyValue(n).trim(); }
+function hbars(labels, counts, n, color){ const mx = Math.max(1, ...counts);
+  return `<div class="hbars">${labels.map((l, i) => `<div class="hb" title="${esc(l)}: ${counts[i]} (${fmt(pct(counts[i], n),1)}%)"><span class="l">${esc(l)}</span><span class="t"><span style="width:${counts[i]/mx*100}%;background:${color||'var(--c1)'}"></span></span><span class="v">${counts[i]} · ${fmt(pct(counts[i], n),1)}%</span></div>`).join('')}</div>`; }
+function donut(labels, counts, n){ const data = JSON.stringify(counts);
+  return `<div class="donut-wrap"><canvas width="260" height="260" data-donut='${data}' role="img" aria-label="${esc(labels.map((l,i)=>l+' '+fmt(pct(counts[i],n),1)+'%').join(', '))}"></canvas><div class="legend">${labels.map((l, i) => `<div><i style="background:var(${CAT[i%8]})"></i><span>${esc(l)}</span><b>${fmt(pct(counts[i], n),1)}%</b></div>`).join('')}</div></div>`; }
+function drawDonuts(root, fixedColors){ (root || document).querySelectorAll('canvas[data-donut]').forEach(cv => { let counts; try { counts = JSON.parse(cv.dataset.donut); } catch(e){ return; }
+  const ctx = cv.getContext('2d'); const W = cv.width, c = W/2, r = W/2 - 4, ir = r*0.6; ctx.clearRect(0,0,W,W);
+  const tot = counts.reduce((a,b)=>a+b,0); const surface = fixedColors ? '#ffffff' : (cssVar('--surface') || '#fff');
+  if (!tot) { ctx.fillStyle = fixedColors ? '#eef2f4' : cssVar('--surface-2'); ctx.beginPath(); ctx.arc(c,c,r,0,Math.PI*2); ctx.arc(c,c,ir,0,Math.PI*2,true); ctx.fill(); return; }
+  let a = -Math.PI/2; counts.forEach((v, i) => { if (!v) return; const da = v/tot*Math.PI*2; ctx.beginPath(); ctx.moveTo(c,c); ctx.arc(c,c,r,a,a+da); ctx.closePath(); ctx.fillStyle = fixedColors ? fixedColors[i%8] : cssVar(CAT[i%8]); ctx.fill(); a += da; });
+  ctx.strokeStyle = surface; ctx.lineWidth = 4; a = -Math.PI/2; if (counts.filter(Boolean).length > 1) counts.forEach(v => { if (!v) return; ctx.beginPath(); ctx.moveTo(c,c); ctx.lineTo(c + r*Math.cos(a), c + r*Math.sin(a)); ctx.stroke(); a += v/tot*Math.PI*2; });
+  ctx.globalCompositeOperation = 'destination-out'; ctx.beginPath(); ctx.arc(c,c,ir,0,Math.PI*2); ctx.fill(); ctx.globalCompositeOperation = 'source-over'; }); }
+function stackbar(counts, n){ return `<div class="stackbar" role="img" aria-label="${[1,2,3,4,5].map(k => t('lk'+k)+' '+fmt(pct(counts[k-1],n),0)+'%').join(', ')}">${counts.map((c, i) => { const p = pct(c, n); return p > 0 ? `<span style="width:${p}%;background:var(--l${i+1});color:var(--l${i+1}-ink)" title="${t('lk'+(i+1))}: ${c} (${fmt(p,1)}%)">${p >= 9 ? Math.round(p)+'%' : ''}</span>` : ''; }).join('')}</div>`; }
+function likertLegend(){ return `<div class="scale-legend">${[1,2,3,4,5].map(k => `<span class="lv"><i style="background:var(--l${k})"></i>${t('lk'+k)}</span>`).join('')}</div>`; }
+
+/* ---------------- results view ---------------- */
+function viewResults(){
+  const liveN = S.responses.filter(r => r && r.status === 'complete').length; const src = currentSrc();
+  const head = `<div class="page-head"><div><div class="eyebrow">${t('rEyebrow')}</div><h1>${t('rTitle')}</h1><p class="muted">${esc(S.survey.title)}</p></div>
+    <div class="row"><div class="seg" role="group"><button data-act="src" data-src="live" aria-pressed="${src==='live'}">${t('live')} (${liveN})</button><button data-act="src" data-src="demo" aria-pressed="${src==='demo'}">${t('demo')}</button></div>
+    <button class="btn primary" data-act="export">${I.file}${t('exportPdf')}</button></div></div>`;
+  if (src === 'live' && liveN === 0) return head + `<div class="card empty"><h2>${t('noResp')}</h2><p>${t('noRespBody')}</p><button class="btn primary" data-act="src" data-src="demo">${t('previewDemo')}</button></div>`;
+  const A = getA(); const ins = insightsFor(A);
+  const kpis = `<div class="kpis">
+    <div class="kpi"><div class="k-l">${t('kResponses')}</div><div class="k-v">${A.n}</div><div class="k-s">${t('kStarted',{n:A.started})}</div></div>
+    <div class="kpi"><div class="k-l">${t('kCompletion')}</div><div class="k-v">${fmt(A.completion,1)}%</div><div class="k-s">${A.n} / ${A.started}</div></div>
+    <div class="kpi"><div class="k-l">${t('kOverall')}</div><div class="k-v">${fmt(A.overall.mean)}</div><div class="k-s">${t('kOf5')} · ${lvChip(A.overall.level)}</div></div>
+    <div class="kpi"><div class="k-l">${t('kTime')}</div><div class="k-v">${A.medianMin == null ? '—' : fmt(A.medianMin,1)}</div><div class="k-s">${t('kMinutes')}</div></div></div>`;
+  const dem = Object.keys(A.demo).length ? `<section class="card"><div class="card-head"><div><h2>${t('demoProfile')}</h2><p>${t('demoProfileLead')}</p></div></div><div class="grid2">${Object.keys(A.demo).map(f => { const d = A.demo[f];
+    return `<div class="chart-card"><h3><span>${t('d_'+f)}</span><span class="muted small">n = ${d.n}</span></h3>${d.opts.length <= 4 ? donut(d.opts, d.counts, d.n) : hbars(d.opts, d.counts, d.n)}</div>`; }).join('')}</div></section>` : '';
+  const ticks = [1.8,2.6,3.4,4.2].map(x => `<em style="inset-inline-start:${x/5*100}%"></em>`).join('');
+  const secs = A.sections.length ? `<section class="card"><div class="card-head"><div><h2>${t('secScores')}</h2><p>${t('secScoresLead')}</p></div></div>
+    <div class="sbars">${A.sections.map(s => `<div class="sb" title="${esc(s.sec.title)}: ${fmt(s.mean)}"><span class="l">${esc(s.sec.title)}</span><span class="t">${ticks}<span style="width:${(s.mean||0)/5*100}%;background:var(--lv-${s.level||'mod'})"></span></span><span class="v">${fmt(s.mean)} ${lvChip(s.level)}</span></div>`).join('')}</div>
+    <div class="scale-legend"><b>${t('scaleLabel')}</b>${LEVELS.map(([k,r]) => `<span class="lv"><i style="background:var(--lv-${k})"></i>${t('lv_'+k)} ${r}</span>`).join('')}</div>
+    <div class="tbl-wrap" style="margin-top:16px"><table class="tbl"><thead><tr><th>${t('colSection')}</th><th class="num">${t('colItems')}</th><th class="num">${t('colN')}</th><th class="num">${t('colMean')}</th><th class="num">${t('colSD')}</th><th>${t('colLevel')}</th><th class="num">${t('colAlpha')}</th></tr></thead><tbody>
+    ${A.sections.map(s => `<tr><td>${esc(s.sec.title)}</td><td class="num">${s.items.length}</td><td class="num">${s.n}</td><td class="num"><b>${fmt(s.mean)}</b></td><td class="num">${fmt(s.sd)}</td><td>${lvChip(s.level)}</td><td class="num">${s.items.length < 2 ? t('alphaNA') : s.alpha == null ? `<span class="muted small">${t('alphaNeed',{n:ALPHA_MIN})}</span>` : `${fmt(s.alpha)} <span class="pill ${s.alpha>=.7?'ok':s.alpha>=.6?'warn':'bad'}">${t(alphaLabel(s.alpha))}</span>`}</td></tr>`).join('')}
+    </tbody></table></div></section>` : '';
+  // cross
+  const gf = Object.keys(A.cross); if (!S.cross || !gf.includes(S.cross)) S.cross = gf[0];
+  let cross = '';
+  if (A.sections.length) { if (!gf.length) cross = `<section class="card"><h2>${t('crossTitle')}</h2><p class="muted" style="margin-top:6px">${t('noCross')}</p></section>`;
+  else { const ct = A.cross[S.cross]; const groups = ct[0].groups;
+    cross = `<section class="card"><div class="card-head"><div><h2>${t('crossTitle')}</h2><p>${t('crossLead')}</p></div>
+      <div class="field" style="min-width:200px"><label for="cross-field">${t('compareBy')}</label><select class="input" id="cross-field" data-cross>${gf.map(f => `<option value="${f}" ${f===S.cross?'selected':''}>${t('d_'+f)}</option>`).join('')}</select></div></div>
+      <div class="tbl-wrap"><table class="tbl"><thead><tr><th>${t('colGroup')}</th><th class="num">${t('colN')}</th>${A.sections.map(s => `<th class="num">${esc(s.sec.title)}</th>`).join('')}</tr></thead><tbody>
+      ${groups.map((g, gi) => `<tr><td>${esc(g.label)}</td><td class="num">${ct[0].groups[gi].n}</td>${ct.map(c => { const m = c.groups[gi].mean; const ms = c.groups.filter(x => x.n>=2 && isFinite(x.mean)).map(x => x.mean);
+        const hi = ms.length > 1 && m === Math.max(...ms), lo = ms.length > 1 && m === Math.min(...ms);
+        return `<td class="num" style="${isFinite(m) ? `background:color-mix(in srgb,var(--lv-${level(m)}) ${14}%,transparent)` : ''}">${isFinite(m) && c.groups[gi].n >= 2 ? `${hi?'▲ ':lo?'▼ ':''}${fmt(m)}` : '<span class="muted">—</span>'}</td>`; }).join('')}</tr>`).join('')}
+      </tbody><tfoot><tr><td><b>${t('anovaRow')}</b></td><td></td>${ct.map(c => `<td class="num">${c.test ? `F = ${fmt(c.test.F)}<br>p = ${fmtP(c.test.p)} · η² = ${fmt(c.test.eta)}<br><span class="pill ${c.test.p < .05 ? 'orange' : ''}">${c.test.p < .05 ? t('sig') : t('notSig')}</span>` : '—'}</td>`).join('')}</tr></tfoot></table></div></section>`; } }
+  // per question
+  const perQ = `<section class="card"><div class="card-head"><div><h2>${t('qResults')}</h2></div></div>${likertLegend()}
+    ${S.survey.sections.map(sec => { const its = sec.items.map(q => A.items[q.id]).filter(i => i && i.q.type !== 'open'); if (!its.length) return '';
+      const so = A.sections.find(s => s.sec.id === sec.id);
+      return `<div style="margin-top:18px"><div class="sec-title-row"><h3>${esc(sec.title)}</h3>${so ? `<span class="small muted">${t('colMean')} ${fmt(so.mean)} · ${lvChip(so.level)}</span>` : ''}</div>
+      ${its.map(it => `<div class="item-res"><div><div class="qtext"><span class="qn">Q${it.no}</span> ${esc(it.q.text)}</div>
+        ${it.q.type === 'likert' ? `<div class="stats"><span>n <b>${it.n}</b></span><span>${t('colMean')} <b>${fmt(it.mean)}</b></span><span>${t('colSD')} <b>${fmt(it.sd)}</b></span>${lvChip(it.level)}</div>` : `<div class="stats"><span>n <b>${it.n}</b></span><span>${typeLabel(it.q.type)}</span></div>`}</div>
+        <div>${it.q.type === 'likert' ? stackbar(it.counts, it.n) : hbars(it.opts, it.counts, it.n, 'var(--c3)')}</div></div>`).join('')}</div>`; }).join('')}</section>`;
+  // open ended
+  const opens = Object.values(A.items).filter(i => i.q.type === 'open');
+  const openSec = opens.length ? `<section class="card"><div class="card-head"><div><h2>${t('openTitle')}</h2></div></div><div class="stack-v">${opens.map(it => { const th = themesFor(A, it.q.id); const kw = keywords(it.answers);
+    return `<div class="chart-card"><h3><span><span class="qn">Q${it.no}</span> ${esc(it.q.text)}</span><span class="muted small">${t('answersN',{n:it.n})}</span></h3>
+      ${!it.n ? `<p class="muted">${t('noAnswers')}</p>` : `
+      <div class="row" style="margin-bottom:10px"><button class="btn sm" data-act="themes" data-qid="${it.q.id}" ${S.ai ? '' : 'disabled'}>${I.spark}${th ? t('themesAgain') : t('themesAI')}</button>${S.ai ? '' : `<span class="small muted">${t('aiNeedKey')}</span>`}</div>
+      ${th ? `<p class="small muted" style="margin-bottom:8px">${t('themesNote',{n:th.n})}</p><div class="grid2">${th.themes.map(x => `<div class="theme-item"><div class="th"><span>${esc(x.theme)}</span><span class="pill teal">${x.count}</span></div><span class="small">${esc(x.description)}</span>${x.quote ? `<q>${esc(x.quote)}</q>` : ''}</div>`).join('')}</div>`
+        : `<div class="lbl-strong small" style="margin-bottom:6px">${t('keywords')}</div>${hbars(kw.map(k=>k[0]), kw.map(k=>k[1]), it.n, 'var(--c2)')}`}
+      <div class="lbl-strong small" style="margin:12px 0 6px">${t('sampleAnswers')}</div><div class="answers">${it.answers.slice(0, 5).map(a => `<div>${esc(a)}</div>`).join('')}</div>`}</div>`; }).join('')}</div></section>` : '';
+  // insights
+  const prLbl = p => `<span class="pill ${p==='high'?'bad':p==='medium'?'warn':'teal'}">${t('pr_'+p)}</span>`;
+  const insSec = `<section class="card"><div class="card-head"><div><h2>${t('insightsTitle')}</h2><p>${t('insightsLead')}</p></div>
+      <div class="row"><span class="pill ${ins.source==='ai'?'teal':''}">${ins.source === 'ai' ? t('srcAI',{d:new Date(ins.at).toLocaleDateString(S.lang==='ar'?'ar-SA-u-nu-latn':'en-GB')}) : t('srcRules')}</span><button class="btn sm" data-act="refine" ${S.ai?'':'disabled'}>${I.spark}${t('refineAI')}</button></div></div>
+    ${ins.summary ? `<p style="margin-bottom:16px;max-width:80ch">${esc(ins.summary)}</p>` : ''}
+    <div class="ins-grid">
+      <div class="chart-card"><h3>${t('findings')}</h3><ol class="ins-list">${ins.findings.map(f => `<li>${esc(f)}</li>`).join('')}</ol></div>
+      <div class="chart-card"><h3>${t('challenges')}</h3><ol class="ins-list">${ins.challenges.map(c => `<li><b>${esc(c.title)}</b><br><span class="small muted">${esc(c.evidence)}</span></li>`).join('')}</ol></div>
+    </div>
+    <div class="chart-card" style="margin-top:14px"><h3>${t('recommendations')}</h3>${ins.recs.slice().sort((a,b)=>['high','medium','low'].indexOf(a.priority)-['high','medium','low'].indexOf(b.priority)).map(r => `<div class="rec">${prLbl(r.priority)}<div><div>${esc(r.action)}</div><div class="meta">${r.challenge ? esc(t('linked',{c:r.challenge})) + ' · ' : ''}${esc(t('timeframe',{t:r.timeframe}))}</div></div></div>`).join('')}</div>
+    <div class="ins-grid" style="margin-top:14px">
+      <div class="chart-card"><h3>${t('limitations')}</h3><ul class="ins-list">${ins.limits.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
+      <div class="chart-card"><h3>${t('future')}</h3><ul class="ins-list">${ins.future.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>
+    </div></section>`;
+  return head + `<div class="stack-v">${src === 'demo' ? `<div class="banner">${I.info}<span>${t('demoBanner',{n:A.n})}</span></div>` : ''}${kpis}${dem}${secs}${cross}${perQ}${openSec}${insSec}</div>`;
+}
+
+/* ---------------- PDF report ---------------- */
+const RP_CAT = ['#2a8574','#eb6834','#2a78d6','#eda100','#e87ba4','#4a3aa7','#e34948','#008300'];
+const RP_LV = { vlow:'#d03b3b', low:'#ec835a', mod:'#9aa6b6', high:'#4fae98', vhigh:'#1f6659' };
+const RP_LK = ['#d95926','#f0a07c','#d9d8d4','#7cc3b3','#2a8574'];
+function rpBars(labels, counts, n, color){ const mx = Math.max(1, ...counts); return labels.map((l,i) => `<div class="rb"><span>${esc(l)}</span><span class="t"><span style="width:${counts[i]/mx*100}%;background:${color||'#2a8574'}"></span></span><span>${counts[i]} (${fmt(pct(counts[i],n),1)}%)</span></div>`).join(''); }
+function reportBlocks(A, ins){
+  const sv = S.survey; const B = []; const lv = l => l ? `<span class="sw" style="background:${RP_LV[l]}"></span>${t('lv_'+l)}` : '—';
+  const dateStr = new Date().toLocaleDateString(S.lang === 'ar' ? 'ar-SA-u-nu-latn' : 'en-GB', { year:'numeric', month:'long', day:'numeric' });
+  const add = (html, np) => B.push({ html, np });
+  // exec summary
+  add(`<h2>${t('rpExec')}</h2>${A.src==='demo' ? `<div><span class="demo-flag">${t('rpDemoFlag')}</span></div>` : ''}<p>${esc(ins.summary)}</p>
+    <div class="kp"><div><small>${t('rpSample')}</small><strong>${A.n}</strong></div><div><small>${t('rpCompletion')}</small><strong>${fmt(A.completion,1)}%</strong></div><div><small>${t('rpOverall')}</small><strong>${fmt(A.overall.mean)}</strong> <small>${lv(A.overall.level)}</small></div></div>`, true);
+  add(`<h3>${t('rpFind')}</h3><ol>${ins.findings.slice(0, 5).map(f => `<li>${esc(f)}</li>`).join('')}</ol>`);
+  // method
+  const cnt = { likert:0, mc:0, yesno:0, open:0 }; sv.sections.forEach(s => s.items.forEach(q => cnt[q.type]++));
+  const per = A.period ? `${new Date(A.period[0]).toLocaleDateString(S.lang==='ar'?'ar-SA-u-nu-latn':'en-GB')} – ${new Date(A.period[1]).toLocaleDateString(S.lang==='ar'?'ar-SA-u-nu-latn':'en-GB')}` : '—';
+  add(`<h2>${t('rpMethod')}</h2><table><tbody>
+    <tr><th style="width:26%">${t('rpDesign')}</th><td>${t('rpDesignTxt')}</td></tr>
+    <tr><th>${t('rpInstrument')}</th><td>${t('rpInstrumentTxt',{ s: sv.sections.length, q: countQ(sv), l: cnt.likert, m: cnt.mc, y: cnt.yesno, o: cnt.open, d: demoOn().length })}</td></tr>
+    <tr><th>${t('rpSample')}</th><td>${t('rpSampleTxt',{ n: A.n, s: A.started, c: fmt(A.completion,1) })}</td></tr>
+    <tr><th>${t('rpPeriod')}</th><td>${per}</td></tr>
+    <tr><th>${t('rpAnalysis')}</th><td>${t('rpAnalysisTxt',{ a: ALPHA_MIN })}</td></tr></tbody></table>`, true);
+  add(`<h3>${t('rpScale')}</h3><table><thead><tr><th>${t('rpRange')}</th><th>${t('colLevel')}</th></tr></thead><tbody>${LEVELS.map(([k,r]) => `<tr><td>${r}</td><td>${lv(k)}</td></tr>`).join('')}</tbody></table>`);
+  // demographics
+  const df = Object.keys(A.demo);
+  df.forEach((f, i) => { const d = A.demo[f];
+    add(`${i===0 ? `<h2>${t('rpDemo')}</h2>` : ''}<div class="box"><h3 style="margin-bottom:8px">${t('d_'+f)} <span style="color:#94a3b8;font-weight:400;font-size:11px">n = ${d.n}</span></h3>
+      ${d.opts.length <= 4 ? `<div style="display:flex;gap:18px;align-items:center"><canvas width="220" height="220" style="width:110px;height:110px" data-donut='${JSON.stringify(d.counts)}'></canvas><div style="flex:1">${d.opts.map((o,j) => `<div class="rb" style="grid-template-columns:1fr 90px"><span><span class="sw" style="background:${RP_CAT[j%8]}"></span>${esc(o)}</span><span>${d.counts[j]} (${fmt(pct(d.counts[j],d.n),1)}%)</span></div>`).join('')}</div></div>` : rpBars(d.opts, d.counts, d.n)}</div>`, i === 0); });
+  // sections overview
+  add(`<h2>${t('rpResults')}</h2><table><thead><tr><th>${t('colSection')}</th><th class="n">${t('colItems')}</th><th class="n">${t('colMean')}</th><th class="n">${t('colSD')}</th><th>${t('colLevel')}</th><th class="n">α</th></tr></thead><tbody>
+    ${A.sections.map(s => `<tr><td>${esc(s.sec.title)}</td><td class="n">${s.items.length}</td><td class="n"><b>${fmt(s.mean)}</b></td><td class="n">${fmt(s.sd)}</td><td>${lv(s.level)}</td><td class="n">${s.alpha == null ? '—' : fmt(s.alpha)}</td></tr>`).join('')}</tbody></table>
+    <div class="box">${A.sections.map(s => `<div class="rb"><span>${esc(s.sec.title)}</span><span class="t"><span style="width:${(s.mean||0)/5*100}%;background:${RP_LV[s.level]||'#9aa6b6'}"></span></span><span><b>${fmt(s.mean)}</b> / 5</span></div>`).join('')}</div>`, true);
+  sv.sections.forEach(sec => { const its = sec.items.map(q => A.items[q.id]).filter(Boolean); const lk = its.filter(i => i.q.type === 'likert'); const so = A.sections.find(s => s.sec.id === sec.id);
+    if (lk.length) add(`<h3>${esc(sec.title)}${so ? ` <span style="font-weight:400;color:#64748b;font-size:12px">· M = ${fmt(so.mean)} (${t('lv_'+so.level)})</span>` : ''}</h3>
+      <table><thead><tr><th>#</th><th>${t('rpQ')}</th>${[1,2,3,4,5].map(k => `<th class="n"><span class="sw" style="background:${RP_LK[k-1]}"></span>${k}</th>`).join('')}<th class="n">${t('colMean')}</th><th class="n">${t('colSD')}</th><th>${t('colLevel')}</th></tr></thead><tbody>
+      ${lk.map(i => `<tr><td>Q${i.no}</td><td>${esc(i.q.text)}<div class="stk" style="margin-top:4px">${i.counts.map((c,k) => c ? `<span style="width:${pct(c,i.n)}%;background:${RP_LK[k]}"></span>` : '').join('')}</div></td>${i.counts.map(c => `<td class="n">${fmt(pct(c,i.n),0)}%</td>`).join('')}<td class="n"><b>${fmt(i.mean)}</b></td><td class="n">${fmt(i.sd)}</td><td>${lv(i.level)}</td></tr>`).join('')}</tbody></table>
+      <div style="font-size:10px;color:#64748b">${[1,2,3,4,5].map(k => `<span class="sw" style="background:${RP_LK[k-1]}"></span>${k} = ${t('lk'+k)}`).join(' &nbsp; ')}</div>`);
+    its.filter(i => i.q.type === 'mc' || i.q.type === 'yesno').forEach(i => add(`<div class="box"><h3 style="margin-bottom:6px">Q${i.no}. ${esc(i.q.text)}</h3>${rpBars(i.opts, i.counts, i.n, '#2a78d6')}</div>`)); });
+  // open themes
+  const opens = Object.values(A.items).filter(i => i.q.type === 'open' && i.n);
+  opens.forEach((i, k) => { const th = themesFor(A, i.q.id); const kw = keywords(i.answers).slice(0, 6);
+    add(`${k===0 ? `<h2>${t('rpOpen')}</h2>` : ''}<div class="box"><h3 style="margin-bottom:6px">Q${i.no}. ${esc(i.q.text)} <span style="font-weight:400;color:#94a3b8;font-size:11px">(${t('answersN',{n:i.n})})</span></h3>
+      ${th ? `<table><thead><tr><th>${t('rpType')}</th><th class="n">n</th><th>${t('rpQ')}</th></tr></thead><tbody>${th.themes.map(x => `<tr><td><b>${esc(x.theme)}</b></td><td class="n">${x.count}</td><td>${esc(x.description)}${x.quote ? `<br><i style="color:#64748b">“${esc(x.quote)}”</i>` : ''}</td></tr>`).join('')}</tbody></table>`
+        : `<div style="font-size:11px;color:#64748b;margin-bottom:4px">${t('keywords')}</div>${rpBars(kw.map(x=>x[0]), kw.map(x=>x[1]), i.n, '#eb6834')}`}</div>`, k === 0); });
+  // group comparisons
+  Object.keys(A.cross).forEach((f, k) => { const ct = A.cross[f]; if (!ct.length) return;
+    add(`${k===0 ? `<h2>${t('rpGroups')}</h2>` : ''}<h3>${t('crossTitle')} · ${t('rpBy',{f:t('d_'+f)})}</h3><table><thead><tr><th>${t('colGroup')}</th><th class="n">n</th>${A.sections.map(s => `<th class="n">${esc(s.sec.title)}</th>`).join('')}</tr></thead><tbody>
+      ${ct[0].groups.map((g, gi) => `<tr><td>${esc(g.label)}</td><td class="n">${g.n}</td>${ct.map(c => `<td class="n">${c.groups[gi].n >= 2 ? fmt(c.groups[gi].mean) : '—'}</td>`).join('')}</tr>`).join('')}
+      <tr><th>${t('anovaRow')}</th><th></th>${ct.map(c => `<th class="n" style="font-weight:400">${c.test ? `F=${fmt(c.test.F)}, p=${fmtP(c.test.p)}${c.test.p < .05 ? ' ★' : ''}` : '—'}</th>`).join('')}</tr></tbody></table>`, k === 0); });
+  // findings, challenges, recs
+  add(`<h2>${t('rpFind')}</h2><ol>${ins.findings.map(f => `<li>${esc(f)}</li>`).join('')}</ol>`, true);
+  add(`<h2>${t('rpChall')}</h2><ol>${ins.challenges.map(c => `<li><b>${esc(c.title)}</b> – ${esc(c.evidence)}</li>`).join('')}</ol>`);
+  const recs = ins.recs.slice().sort((a,b)=>['high','medium','low'].indexOf(a.priority)-['high','medium','low'].indexOf(b.priority));
+  add(`<h2>${t('rpRecs')}</h2>`);
+  recs.forEach(r => add(`<table><tbody><tr><td style="width:14%"><b style="color:${r.priority==='high'?'#d03b3b':r.priority==='medium'?'#a86a12':'#1f6659'}">${t('pr_'+r.priority)}</b></td><td>${esc(r.action)}<div style="color:#64748b;font-size:11px;margin-top:2px">${r.challenge ? esc(t('linked',{c:r.challenge})) + ' · ' : ''}${esc(t('timeframe',{t:r.timeframe}))}</div></td></tr></tbody></table>`));
+  add(`<h2>${t('rpLimits')}</h2><h3>${t('limitations')}</h3><ul>${ins.limits.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`);
+  add(`<h3>${t('future')}</h3><ul>${ins.future.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`);
+  // appendix
+  add(`<h2>${t('rpAppendix')}</h2><p><b>${esc(sv.title)}</b></p><p style="white-space:pre-line">${esc(sv.description)}</p>`, true);
+  if (demoOn().length) add(`<h3>${t('aboutYou')}</h3><table><thead><tr><th>${t('rpQ')}</th><th>${t('rpOptions')}</th></tr></thead><tbody>${demoOn().map(k => `<tr><td>${t('d_'+k)}</td><td>${k === 'name' ? (sv.demographics.name.anon === false ? t('required') : t('optional')) : demoOpts(k).map(esc).join(' · ')}</td></tr>`).join('')}</tbody></table>`);
+  let qn = 0; sv.sections.forEach((sec, si) => { add(`<h3>${t('section')} ${si+1}: ${esc(sec.title)}</h3>`);
+    sec.items.forEach(q => { qn++; add(`<table><tbody><tr><td style="width:8%">Q${qn}</td><td>${esc(q.text)}${q.type === 'mc' ? `<div style="color:#64748b;font-size:11px">${(q.opts||[]).map(esc).join(' · ')}</div>` : q.type === 'likert' ? `<div style="color:#64748b;font-size:11px">${[1,2,3,4,5].map(k => t('lk'+k)).join(' · ')}</div>` : ''}</td><td style="width:20%;color:#64748b">${typeLabel(q.type)}</td></tr></tbody></table>`); }); });
+  return { B, dateStr };
+}
+function buildReportDOM(A, ins){
+  const root = document.getElementById('report-root'); root.innerHTML = ''; root.setAttribute('dir', S.lang === 'ar' ? 'rtl' : 'ltr'); root.setAttribute('lang', S.lang);
+  const { B, dateStr } = reportBlocks(A, ins); const sv = S.survey; const pages = [];
+  const cover = document.createElement('div'); cover.className = 'rp cover';
+  cover.innerHTML = `<div class="band"></div><div class="cv"><div style="display:flex;align-items:center;gap:10px;font-weight:800;color:#1f6659">${I.logo}<span>${t('appName')} · ${t('appSub')}</span></div>
+    <div class="sub" style="margin-top:120px">${t('rpSub')}</div><h1>${esc(sv.title)}</h1><p style="color:#475569;font-size:14px;max-width:560px;white-space:pre-line">${esc(sv.description)}</p>
+    ${A.src === 'demo' ? `<div style="margin-top:14px"><span class="demo-flag">${t('rpDemoFlag')}</span></div>` : ''}
+    <div class="meta"><div><small>${t('rpDate')}</small><strong>${dateStr}</strong></div><div><small>${t('rpSample')}</small><strong>${A.n}</strong></div><div><small>${t('rpCompletion')}</small><strong>${fmt(A.completion,1)}%</strong></div><div><small>${t('rpOverall')}</small><strong>${fmt(A.overall.mean)} / 5</strong></div></div></div>`;
+  root.appendChild(cover); pages.push(cover);
+  let body = null;
+  const newPage = () => { const p = document.createElement('div'); p.className = 'rp'; p.innerHTML = `<div class="rp-head"><b>${esc(qShort(sv.title))}</b><span>${t('rpSub')}</span></div><div class="rp-body"></div><div class="rp-foot"><span>${t('appName')} · ${dateStr}</span><span class="pg"></span></div>`; root.appendChild(p); pages.push(p); body = p.querySelector('.rp-body'); };
+  newPage();
+  B.forEach(b => { if (b.np && body.children.length) newPage(); const w = document.createElement('div'); w.innerHTML = b.html; body.appendChild(w); drawDonuts(w, RP_CAT);
+    if (body.scrollHeight > body.clientHeight + 1 && body.children.length > 1) { body.removeChild(w); newPage(); body.appendChild(w); } });
+  pages.forEach((p, i) => { const pg = p.querySelector('.pg'); if (pg) pg.textContent = t('rpPage', { i: i+1, n: pages.length }); });
+  return pages;
+}
+async function exportPdf(){
+  const A = getA();
+  if (!A.n) { toast(t('pdfEmpty')); return; }
+  if (!window.html2canvas || !window.jspdf) { toast(t('pdfLibs')); return; }
+  const ins = insightsFor(A);
+  try { if (document.fonts && document.fonts.ready) await document.fonts.ready; } catch(e){}
+  S.busy = { msg: t('pdfBuilding', { i: 0, n: '…' }) }; renderModal();
+  let pdf, imgs = [];
+  try {
+    const pages = buildReportDOM(A, ins);
+    pdf = new window.jspdf.jsPDF({ unit:'pt', format:'a4', compress:true });
+    for (let i = 0; i < pages.length; i++) {
+      S.busy.msg = t('pdfBuilding', { i: i+1, n: pages.length }); renderModal();
+      const canvas = await window.html2canvas(pages[i], { scale: 2, backgroundColor:'#ffffff', logging:false, useCORS:false, windowWidth: 900 });
+      const img = canvas.toDataURL('image/jpeg', 0.9); imgs.push(img);
+      if (i) pdf.addPage(); pdf.addImage(img, 'JPEG', 0, 0, 595.28, 841.89, undefined, 'FAST');
+    }
+  } catch(e) { console.error(e); S.busy = null; renderModal(); document.getElementById('report-root').innerHTML = ''; toast(t('pdfFailed')); return; }
+  S.busy = null; renderModal(); document.getElementById('report-root').innerHTML = '';
+  const fname = (S.survey.title || 'survey').replace(/[\\/:*?"<>|]+/g, '').slice(0, 80).trim() + (A.src === 'demo' ? ' (demo)' : '') + ' - report.pdf';
+  try { pdf.save(fname); toast(t('pdfSaved')); }
+  catch(e) { console.error(e); S.modal = { kind:'preview', msg: t('pdfFailed'), pages: imgs }; renderModal(); }
+}
+
+/* ---------------- routing ---------------- */
+const TABS = ['setup','questions','share','take','results'];
+function parseHash(){ const p = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+  if (p[0] === 'r' && p[1]) return { name:'respond', id: p[1] };
+  if (p[0] === 'edit' && p[1]) return { name:'edit', id: p[1], tab: TABS.includes(p[2]) ? p[2] : 'setup' };
+  return { name:'home' }; }
+function go(hash){ if (location.hash === hash) route(); else location.hash = hash; }
+async function route(force){
+  const r = parseHash(); const prev = S.route; S.route = r;
+  if (r.name === 'edit') {
+    S.tab = r.tab;
+    if (S.mode === 'cloud' && !S.user) { Store.stop(); S.survey = null; }
+    else if (force || prev.name !== 'edit' || prev.id !== r.id) { if (Store.mineUnsub) { Store.mineUnsub(); Store.mineUnsub = null; } Store.open(r.id); S.src = null; }
+    if (S.tab === 'take' && S.take && S.take.done) S.take = null;
+  } else if (r.name === 'respond') {
+    if (force || prev.name !== 'respond' || prev.id !== r.id) {
+      Store.stop(); if (Store.mineUnsub) { Store.mineUnsub(); Store.mineUnsub = null; }
+      S.survey = null; S.loadErr = null; S.take = null; render();
+      const sv = await Store.loadPublic(r.id);
+      if (S.route !== r) return;
+      if (!sv || sv.status !== 'published' || !Array.isArray(sv.sections)) S.loadErr = t('notFound');
+      else { S.survey = sv; if (!lsGet('istb.lang') && (sv.lang === 'ar' || sv.lang === 'en')) S.lang = sv.lang;
+        S.take = newTake(); const mine = await Store.myResponse(r.id); if (S.route !== r) return;
+        if (mine && mine.status === 'complete') S.take.already = true; }
+    }
+  } else { Store.stop(); S.survey = null; S.loadErr = null; Store.watchMine(); }
+  render(); window.scrollTo({ top: 0 });
+}
+function onAuth(){ if (S.route.name === 'respond') return; S.counts = {}; route(true); }
+window.addEventListener('hashchange', () => route());
+
+/* ---------------- main render ---------------- */
+function render(){
+  document.documentElement.lang = S.lang; document.documentElement.dir = S.lang === 'ar' ? 'rtl' : 'ltr';
+  renderTop();
+  const main = document.getElementById('main');
+  if (!S.ready) { main.innerHTML = `<div class="loading"><span class="spin"></span><span>${t('loading')}</span></div>`; return; }
+  const r = S.route; let html;
+  const loading = `<div class="loading"><span class="spin"></span><span>${t('loading')}</span></div>`;
+  const errCard = (h, p) => `<div class="survey"><div class="card empty"><h2>${esc(h)}</h2><p>${esc(p || '')}</p><a class="btn" href="#/">${t('backToList')}</a></div></div>`;
+  if (r.name === 'home') html = viewHome();
+  else if (r.name === 'respond') html = S.survey ? viewTake() + `<p class="footer">${t('respondBrand')}</p>` : S.loadErr ? `<div class="survey"><div class="card empty"><h2>${t('notFound')}</h2><p>${t('notFoundBody')}</p></div></div>` : loading;
+  else if (S.mode === 'cloud' && !S.user) html = viewHero();
+  else if (!S.survey) html = S.loadErr ? errCard(S.loadErr) : loading;
+  else { const tab = S.tab;
+    html = crumb() + (tab === 'setup' ? viewSetup() : tab === 'questions' ? viewQuestions() : tab === 'share' ? viewShare() : tab === 'results' ? viewResults() : viewTake()); }
+  main.innerHTML = html;
+  drawDonuts(main);
+  if (r.name === 'edit' && S.tab === 'share' && S.survey) drawQR();
+  renderModal();
+}
+
+/* ---------------- events ---------------- */
+function moveArr(a, i, d){ const j = i + d; if (j < 0 || j >= a.length) return; [a[i], a[j]] = [a[j], a[i]]; }
+function changed(structural){ Store.saveSurvey(); invalidate(); if (structural) render(); }
+async function doGenerate(useAI){
+  const sv = S.survey;
+  if (useAI && (!(sv.summary||'').trim() || !(sv.title||'').trim())) { toast(t('needSummary')); return; }
+  const n = countQ(sv);
+  if (n && !(await confirmBox(t('replaceQ', { n }), t('replaceOk')))) return;
+  let secs = null;
+  if (useAI && S.ai) { try { secs = await aiGenerate(); } catch(e) { if (e && e.code === 'cancelled') return; toast(aiErrText(e), 7000); return; } }
+  else { if (useAI) toast(t('aiOff'), 5000); secs = templateDraft(); }
+  sv.sections = secs; changed(false); go('#/edit/' + S.route.id + '/questions');
+  toast(t('genDone', { s: secs.length, q: countQ(sv) }), 5000);
+}
+document.addEventListener('click', async ev => {
+  const b = ev.target.closest('[data-act]'); if (!b) return; const act = b.dataset.act; const sv = S.survey;
+  const si = b.dataset.s != null ? +b.dataset.s : null, qi = b.dataset.q != null ? +b.dataset.q : null;
+  switch (act) {
+    case 'tab': if (S.route.name === 'edit') go('#/edit/' + S.route.id + '/' + b.dataset.tab); break;
+    case 'lang': S.lang = S.lang === 'en' ? 'ar' : 'en'; lsSet('istb.lang', S.lang); invalidate(); render(); break;
+    case 'sign-in': Store.signIn(); break;
+    case 'sign-out': Store.signOut().then(() => go('#/')); break;
+    case 'settings': S.modal = { kind:'settings' }; renderModal(); setTimeout(() => { const i = document.getElementById('api-key'); if (i) i.focus(); }, 30); break;
+    case 'key-save': { const v = (document.getElementById('api-key').value || '').trim(); if (v) { lsSet('istb.apikey', v); toast(t('keySaved')); } else { lsDel('istb.apikey'); } S.ai = !!aiKey(); S.modal = null; render(); break; }
+    case 'key-remove': lsDel('istb.apikey'); S.ai = false; S.modal = null; toast(t('keyRemoved')); render(); break;
+    case 'new-blank': case 'new-example': { if (S.mode === 'cloud' && !S.user) break; const base = sampleSurvey(S.lang);
+      if (act === 'new-blank') Object.assign(base, { title:'', description:'', summary:'', sections:[] });
+      try { b.disabled = true; const id = await Store.create(base); go('#/edit/' + id + '/setup'); } catch(e){ console.error(e); toast(t('saveFailed')); b.disabled = false; } break; }
+    case 'del-survey': { const s = (S.mine || []).find(x => x.id === b.dataset.id); if (!s) break;
+      if (await confirmBox(t('delSurveyConfirm', { t: s.title || t('untitled') }), t('del'))) { try { await Store.remove(s.id); toast(t('deleted')); render(); } catch(e){ console.error(e); toast(t('loadFailed')); } } break; }
+    case 'copy-link': copyText(respondUrl(b.dataset.id)); break;
+    case 'copy-url': copyText(respondUrl(S.route.id), document.getElementById('share-url')); break;
+    case 'qr-dl': { const box = document.getElementById('qr-box'); const c = box && box.querySelector('canvas'); const img = box && box.querySelector('img');
+      const src = c ? c.toDataURL('image/png') : img && img.src; if (!src) break;
+      const a = document.createElement('a'); a.href = src; a.download = (S.survey.title || 'questionnaire').replace(/[\\/:*?"<>|]+/g, '').slice(0, 60) + ' - QR.png';
+      document.body.appendChild(a); a.click(); a.remove(); break; }
+    case 'demo-toggle': if (b.tagName !== 'INPUT') return; sv.demographics[b.dataset.key] = Object.assign({ opts:null, anon:true }, sv.demographics[b.dataset.key], { on: b.checked }); changed(true); break;
+    case 'demo-reset': sv.demographics[b.dataset.key].opts = null; changed(true); break;
+    case 'name-anon': if (b.tagName !== 'INPUT') return; sv.demographics.name.anon = b.checked; changed(false); break;
+    case 'gen-ai': doGenerate(true); break;
+    case 'gen-tpl': doGenerate(false); break;
+    case 'sec-add': sv.sections.push({ id: uid('s'), title: t('newSection'), items: [{ id: uid('q'), type:'likert', text:'', opts:null, req:true }] }); changed(true); break;
+    case 'sec-up': moveArr(sv.sections, si, -1); changed(true); break;
+    case 'sec-down': moveArr(sv.sections, si, 1); changed(true); break;
+    case 'sec-del': { const s = sv.sections[si]; if (await confirmBox(t('delSConfirm', { s: s.title, n: s.items.length }), t('del'))) { sv.sections.splice(si, 1); changed(true); } break; }
+    case 'q-add': sv.sections[si].items.push({ id: uid('q'), type:'likert', text:'', opts:null, req:true }); changed(true); setTimeout(() => { const ta = document.querySelectorAll(`[data-q-text^="${si}:"]`); if (ta.length) ta[ta.length-1].focus(); }, 30); break;
+    case 'q-up': moveArr(sv.sections[si].items, qi, -1); changed(true); break;
+    case 'q-down': moveArr(sv.sections[si].items, qi, 1); changed(true); break;
+    case 'q-del': { const q = sv.sections[si].items[qi]; if (!q.text.trim() || !S.responses.length || await confirmBox(t('delQConfirm'), t('del'))) { sv.sections[si].items.splice(qi, 1); changed(true); } break; }
+    case 'publish': sv.status = 'published'; changed(true); break;
+    case 'unpublish': sv.status = 'draft'; changed(true); break;
+    case 'take-start': startTake(); break;
+    case 'take-next': if (!validateStep()) { render(); focusFirstError(); break; } S.take.step++; saveDraft(); render(); window.scrollTo({ top: 0 }); break;
+    case 'take-back': S.take.errors = {}; S.take.step--; saveDraft(); render(); window.scrollTo({ top: 0 }); break;
+    case 'take-submit': submitTake(); break;
+    case 'take-again': S.take = newTake(); S.take.already = S.mode === 'cloud'; render(); break;
+    case 'src': S.src = b.dataset.src; render(); break;
+    case 'themes': { const A = getA(); const it = A.items[b.dataset.qid]; if (!it) break;
+      try { const th = await aiThemes(A, it); slot(A.src).themes[it.q.id] = th; if (A.src === 'live') Store.saveInsights(); render(); }
+      catch(e){ if (e && e.code !== 'cancelled') toast(aiErrText(e), 6000); } break; }
+    case 'refine': { const A = getA(); try { const r = await aiInsights(A); slot(A.src).report = r; if (A.src === 'live') Store.saveInsights(); render(); }
+      catch(e){ if (e && e.code !== 'cancelled') toast(aiErrText(e), 6000); } break; }
+    case 'export': exportPdf(); break;
+    case 'busy-stop': if (S.busy && S.busy.ctl) S.busy.ctl.abort(); break;
+    case 'modal-yes': case 'modal-no': { const m = S.modal; S.modal = null; renderModal(); if (m && m.res) m.res(act === 'modal-yes'); break; }
+    case 'modal-close': S.modal = null; renderModal(); break;
+  }
+});
+document.addEventListener('input', ev => {
+  const el = ev.target; const sv = S.survey; if (!sv) return;
+  if (el.dataset.bind) { sv[el.dataset.bind] = el.value; changed(false); return; }
+  if (el.dataset.demoOpts) { sv.demographics[el.dataset.demoOpts].opts = el.value.split('\n').map(x => x.trim()).filter(Boolean); changed(false); return; }
+  if (el.dataset.secTitle != null) { sv.sections[+el.dataset.secTitle].title = el.value; changed(false); return; }
+  if (el.dataset.qText) { const [s, q] = el.dataset.qText.split(':').map(Number); const it = sv.sections[s].items[q]; it.text = el.value; changed(false);
+    const lb = document.getElementById('lint-' + it.id); if (lb) lb.innerHTML = lint(it).map(x => `<span class="pill warn">${esc(x)}</span>`).join(''); return; }
+  if (el.dataset.qOpts) { const [s, q] = el.dataset.qOpts.split(':').map(Number); sv.sections[s].items[q].opts = el.value.split('\n').map(x => x.trim()).filter(Boolean); changed(false); return; }
+  if (el.dataset.demoName != null && S.take) { S.take.demo.name = el.value; saveDraft(); return; }
+  if (el.dataset.ansText && S.take) { S.take.ans[el.dataset.ansText] = el.value; if (el.value.trim()) { delete S.take.errors[el.dataset.ansText]; el.closest('fieldset').classList.remove('has-err'); } saveDraft(); return; }
+});
+document.addEventListener('change', ev => {
+  const el = ev.target; const sv = S.survey; if (!sv) return;
+  if (el.dataset.qType) { const [s, q] = el.dataset.qType.split(':').map(Number); const it = sv.sections[s].items[q]; it.type = el.value;
+    if (it.type === 'mc' && !(it.opts && it.opts.length)) it.opts = S.lang === 'ar' ? ['الخيار الأول','الخيار الثاني','الخيار الثالث'] : ['Option 1','Option 2','Option 3'];
+    if (it.type === 'open') it.req = false; changed(true); return; }
+  if (el.dataset.qReq) { const [s, q] = el.dataset.qReq.split(':').map(Number); sv.sections[s].items[q].req = el.checked; changed(false); return; }
+  if (el.dataset.cross != null) { S.cross = el.value; render(); return; }
+  if (el.dataset.demo && S.take) { S.take.demo[el.dataset.demo] = +el.value; delete S.take.errors['d_' + el.dataset.demo]; el.closest('fieldset').classList.remove('has-err'); saveDraft(); return; }
+  if (el.dataset.ans && S.take) { S.take.ans[el.dataset.ans] = +el.value; delete S.take.errors[el.dataset.ans]; el.closest('fieldset').classList.remove('has-err'); saveDraft(); return; }
+});
+document.addEventListener('focusout', () => { setTimeout(() => { if (S.pendingRemote && !(document.activeElement && /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName))) { S.survey = S.pendingRemote; S.pendingRemote = null; invalidate(); render(); } }, 50); });
+
+/* ---------------- boot ---------------- */
+async function boot(){
+  const saved = lsGet('istb.lang'); S.lang = saved === 'ar' || saved === 'en' ? saved : ((navigator.language || '').toLowerCase().startsWith('ar') ? 'ar' : 'en');
+  render();
+  await Store.init();
+  S.ai = !!aiKey();
+  S.ready = true;
+  await route();
+}
+boot();
+})();
+</script>
+</body>
+</html>
